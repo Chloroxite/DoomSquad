@@ -1,0 +1,249 @@
+Actor ARSwitchingModes : Inventory
+{
+	Inventory.MaxAmount 1
+	+IGNORESKILL
+}
+Actor Grenades : Ammo
+{
+	Inventory.MaxAmount 30
+	+IGNORESKILL
+}
+
+Actor UACAmmo : Ammo
+{
+	Inventory.MaxAmount 200
+	+IGNORESKILL
+}
+
+Actor UACMag : Ammo
+{
+	Inventory.MaxAmount 30
+	+IGNORESKILL
+}
+
+Actor UAC4A : Weapon
+{
+	Obituary "%o was turned into swiss cheese %k's UAC4A."
+	Inventory.PickupMessage "You got the UAC4A assault rifle!"
+	Weapon.SlotNumber 3
+	Weapon.Kickback 100
+	Weapon.AmmoType "Clip"
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 4
+	Weapon.AmmoType2 "UACMag"
+	Weapon.AmmoGive 0
+	Weapon.AmmoUse 0
+	Inventory.RestrictedTo "AssaultPlayer"
+	Tag "UAC4A"
+	Decal "BulletChip"
+	+AMMO_CHECKBOTH
+	
+	States
+	{
+	Ready:
+		UAC4 A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		Loop
+	Deselect:
+		TNT1 A 0 A_JumpIfInventory("ARSwitchingModes", 1, "ModeSwitch")
+		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+		
+		UAC4 A 1 
+		UAC4 A 1 Offset(20, 0)
+		UAC4 A 1 Offset(36, 0)
+		UAC4 B 1 Offset(70, 30)
+		UAC4 B 1 Offset(120, 50)
+		UAC4 B 0 A_Lower
+		Wait
+	ModeSwitch:
+		TNT1 A 0 A_Lower
+		Wait
+	DeselectDeath:
+		TNT1 A 0 A_TakeInventory("ARSwitchingModes", 1)
+		UAC4 A 1 A_Lower
+		Wait
+	Select:
+		TNT1 A 0 A_JumpIfInventory("ARSwitchingModes", 1, "SelectMode")
+		
+		UAC4 B 0 A_Raise
+		UAC4 B 1 Offset(120, 50) A_PlaySound("Weapons/M4A1PK")
+		UAC4 A 1 Offset(70, 30)
+		UAC4 A 1 Offset(36, 30)
+		UAC4 A 1 Offset(20, 30)
+		Goto Ready
+	SelectMode:
+		UAC4 A 0 A_Raise
+		UAC4 A 2 Offset(2, 32)
+		UAC4 A 2 Offset(3, 35)
+		UAC4 A 2 Offset(4, 37) A_PlaySound("Weapons/M4A1R2")
+		UAC4 A 2 Offset(3, 35)
+		UAC4 A 2 Offset(2, 32) A_TakeInventory("ARSwitchingModes", 1)
+		Goto Ready
+	Fire:
+		UAC4 A 0 A_JumpIfInventory("UACMag", 1, 1)
+		Goto Reload
+		
+		UAC4 A 1
+		UAC4 A 1 bright A_FireBullets (2,2,1,10,"BulletPuff")
+		UAC4 A 0 A_SetPitch(pitch-.8)
+		UACF A 1 A_PlaySound("Weapons/M4A1FIR", 1, 0.5)
+		UACF B 1 Radius_Quake (1,1,0,1,0)
+		UACF B 0 A_TakeInventory("UACMag", 1)
+		UACF B 0 A_Refire
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GiveInventory("ARSwitchingModes", 1)
+		UAC4 A 0 A_SelectWeapon("UAC4AGrenade")
+		Goto Reset
+	Reload:
+		UAC4 A 0 A_JumpIfInventory("UACMag", 0, "Reset")
+		UAC4 A 0 A_JumpIfInventory("Clip", 1, 1)
+		Goto Reset
+		
+		UAC4 A 2
+		UAC4 A 1 Offset(8, 8)
+		UACR A 2 
+		UACR A 1 Offset(16, 8)
+		UACR B 2 
+		UACR B 2 Offset(20, 0)
+		UACR C 2
+		UACR D 2 A_PlaySound("Weapons/M4A1R1")
+		UACR D 2 Offset(22, 0) 
+		UACR D 2 Offset(20, 0)
+		UACR E 2 
+		UACR F 2
+		UACR G 2 
+		UACR H 2  A_PlaySound("Weapons/M4A1R2")
+		UACR H 2 Offset(24, 0) 
+		UACR H 2 Offset(26, 0) A_PlaySound("Weapons/M4A1R3")
+		UACR H 2 Offset(24, 0) 
+		UACR H 2 Offset(20, 0)
+		UACR H 2 Offset(18, 0)
+		UACR H 2 Offset(10, 0)
+		UACR B 2
+		UACR A 2
+		Goto ReloadLoop
+	ReloadLoop:
+		TNT1 A 0 A_JumpIfInventory("UACMag", 0, "Ready")
+	
+		TNT1 A 0 A_JumpIfInventory("Clip", 1, 1)
+		Goto Ready
+	
+		TNT1 A 0 A_GiveInventory("UACMag", 1)
+		TNT1 A 0 A_TakeInventory("Clip", 1)
+		Loop
+	Reset:
+		TNT1 A 0
+		Goto Ready
+	Flash:
+		TNT1 A 2 bright
+		Stop
+	Spawn:
+		//lol no
+		Stop
+	}
+}
+
+Actor UAC4AGrenade : UAC4A
+{
+	Weapon.AmmoType1 "Grenades"
+	Weapon.SlotNumber ""
+	states
+	{
+	Select:	
+		TNT1 A 0 A_JumpIfInventory("ARSwitchingModes", 1, "SelectMode")
+		
+		TNT1 A 0 A_Raise
+		UAC4 B 1 Offset(120, 50) A_PlaySound("Weapons/M4A1R2")
+		UAC4 A 1 Offset(70, 30)
+		UAC4 A 1 Offset(36, 30)
+		UAC4 A 1 Offset(20, 30)
+		Goto Ready
+	SelectMode:
+		UAC4 A 0 A_Raise
+		UAC4 A 2 Offset(2, 32)
+		UAC4 A 2 Offset(3, 35)
+		UAC4 A 2 Offset(4, 37) A_PlaySound("Weapons/M4A1R2")
+		UAC4 A 2 Offset(3, 35)
+		UAC4 A 2 Offset(2, 32) A_TakeInventory("ARSwitchingModes", 1)
+		Goto Ready
+	Deselect:
+		TNT1 A 0 A_JumpIfInventory("ARSwitchingModes", 1, "ModeSwitch")
+		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+		
+		UAC4 A 1 Offset(20, 30)
+		UAC4 A 1 Offset(36, 30)
+		UAC4 A 1 Offset(70, 30)
+		UAC4 B 1 Offset(120, 50) A_PlaySound("Weapons/M4A1R2")
+		TNT1 A 0 A_Lower
+		Wait
+	ModeSwitch:
+		TNT1 A 0 A_Lower
+		Wait
+	DeselectDeath:
+		TNT1 A 0 A_TakeInventory("ARSwitchingModes", 1)
+		UAC4 A 1 A_Lower
+		Wait
+	Ready:
+		UAC4 A 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Grenades", 1, 1)
+		Goto AltFire
+		
+		UAC4 A 1
+		UACF A 1 bright A_FireCustomMissile("GrenadeProjectile")
+		UAC4 A 0 A_SetPitch(pitch-.8)
+		UACF A 0 A_PlaySound("Weapons/M4A1GRE", 1, 0.5)
+		UACF B 1 Radius_Quake (1,1,0,1,0)
+		UAC4 A 0 A_TakeInventory("Grenades", 1)
+		UAC4 A 20
+		UAC4 A 2 Offset(2, 30)
+		UACG A 2 Offset(4, 28)
+		UACG A 2 Offset(8, 26)
+		UACG A 2 Offset(10, 24)
+		UACG B 2
+		UACG C 2
+		UACG D 2 A_PlaySound("Weapons/M4A1GRER")
+		UACG E 2 Offset(12, 25) 
+		UACG E 2 Offset(14, 24)
+		UACG E 2 Offset(15, 23)
+		UACG E 2 Offset(14, 24)
+		UAC4 A 2 Offset(12, 25)
+		UAC4 A 2 
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GiveInventory("ARSwitchingModes", 1)
+		TNT1 A 0 A_SelectWeapon("UAC4A")
+	}
+}	
+
+Actor GrenadeProjectile
+{
+	Damage 1
+    Radius 2
+    Height 2
+    Speed 80
+    Projectile 
+    Obituary "%o was blown away by %k's UAC4A Grenade."
+    Renderstyle "Normal"
+    Species "Player"
+    Scale 0.5
+	DeathSound "Misc/EXPLOSION"
+    Decal DoomImpScorch
+    +FORCERADIUSDMG
+	+BLOODSPLATTER
+    +THRUSPECIES
+	-NOGRAVITY
+	states
+	{
+	Spawn:
+		MISL A 1
+		Loop
+	Death:
+		MISL B 0 A_Explode(150, 150)
+		MISL B 8 A_NoGravity
+		MISL C 6
+		MISL D 4
+		Stop
+	}
+}

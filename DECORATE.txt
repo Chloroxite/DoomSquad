@@ -1,0 +1,6 @@
+#include DECORATE/Classes/Assault/assault.dec
+#include DECORATE/Classes/Support/support.dec
+#include DECORATE/Classes/Medic/medic.dec
+#include DECORATE/Classes/Specialist/specialist.dec
+#include DECORATE/Classes/Hornet.dec
+#include DECORATE/PICKUPS/pickups.dec

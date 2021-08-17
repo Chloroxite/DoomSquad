@@ -1,0 +1,6 @@
+gameinfo
+{
+	PlayerClasses = "AssaultPlayer", "SupportPlayer", "MedicPlayer"//, "SpecialistPlayer"
+	WeaponSlot = 2, "Hornet"
+	WeaponSlot = 3, "UAC4A", "SG12", "Badger"//, "LRDMR"
+}

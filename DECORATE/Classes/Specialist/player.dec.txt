@@ -1,0 +1,6 @@
+Actor SpecialistPlayer : DoomPlayer
+{
+	Player.DisplayName "Specialist"
+	Player.StartItem "Hornet", 1
+	Player.StartItem "Clip", 50
+}

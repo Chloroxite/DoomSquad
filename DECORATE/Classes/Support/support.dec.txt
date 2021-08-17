@@ -1,0 +1,2 @@
+#include DECORATE/Classes/Support/player.dec
+#include DECORATE/Classes/Support/primaryweap.dec

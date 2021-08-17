@@ -1,0 +1,6 @@
+actor SupportPlayer : DoomPlayer
+{
+	Player.DisplayName "Support"
+	Player.StartItem "Hornet", 1
+	Player.StartItem "Clip", 50
+}

@@ -1,0 +1,7 @@
+actor AssaultPlayer : DoomPlayer
+{
+	Player.DisplayName "Assault"
+	Player.StartItem "Hornet", 1
+	Player.StartItem "Clip", 50
+	
+}

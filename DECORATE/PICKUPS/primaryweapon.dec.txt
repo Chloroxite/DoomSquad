@@ -1,0 +1,18 @@
+Actor PrimaryPickup : CustomInventory Replaces Shotgun
+{
+	Inventory.PickupMessage "You've obtained your Primary Weapon! (Slot 3)"
+	Inventory.PickupSound "Pickups/WPICK"
+	+COUNTITEM
+	states
+	{
+	spawn:
+		PMBX A -1
+		stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("UAC4A",1)
+		TNT1 A 0 A_GiveInventory("SG12",1)
+		TNT1 A 0 A_GiveInventory("Badger", 1)
+		TNT1 A 0 A_GiveInventory("LRDMR", 1)
+		stop
+	}
+}

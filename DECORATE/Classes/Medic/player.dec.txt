@@ -1,0 +1,6 @@
+actor MedicPlayer : DoomPlayer
+{
+	Player.DisplayName "Medic"
+	Player.StartItem "Hornet", 1
+	Player.StartItem "Clip", 50
+}

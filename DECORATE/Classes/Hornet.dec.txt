@@ -1,0 +1,90 @@
+actor HornetMag : Ammo
+{
+	+IGNORESKILL
+	Inventory.MaxAmount 12
+}
+
+actor Hornet : Weapon replaces Pistol
+{
+	Obituary "%o was stung by %k's Hornet."
+	Inventory.PickupMessage "You got the Hornet Pistol! HOW??"
+	Weapon.SlotNumber 2
+	Weapon.Kickback 100
+	Weapon.AmmoType "Clip"
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.AmmoType2 "HornetMag"
+	Weapon.AmmoUse2 0
+	Weapon.AmmoGive2 0
+	Tag "Hornet"
+	Decal "BulletChip"
+	+WEAPON.NOAUTOFIRE
+	States
+	{
+	Ready:
+		HORN A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		Loop
+	Deselect:
+		HORN A 1 Offset(4, 32)
+		HORN A 1 Offset(10, 34)
+		HORN A 1 Offset(14, 40)
+		HORN A 1 Offset(16, 52)
+		HORN A 1 Offset(16, 78)
+		HORN A 0 A_Lower
+		Wait
+	Select:
+		HORN A 0 A_Raise
+		HORN A 1 Offset(16, 78) A_PlaySound("Weapons/HORNPIK")
+		HORN A 1 Offset(16, 52)
+		HORN A 1 Offset(14, 40)
+		HORN A 1 Offset(10, 34)
+		HORN A 1 Offset(4, 32)
+		HORN A 1
+		Goto Ready
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("HornetMag", 1, 1)
+		Goto Reload
+		
+		HORF A 1 bright A_FireBullets (2,2,-1,10,"BulletPuff")
+		HORF A 0 A_SetPitch(pitch-.5)
+		HORF A 0 A_PlaySound("Weapons/HORNFIR", 1, 0.8)
+		HORF A 1 A_TakeInventory("HornetMag", 1)
+		HORF C 1 Radius_Quake (1,1,0,1,0)
+		HORN B 1 Offset(0, 32) 
+		Goto Ready
+	Reload:
+		HORN A 0 A_JumpIfInventory("Clip", 1, 1)
+		Goto Reset
+		
+		HORN A 0 A_JumpIfInventory("HornetMag", 0, "Reset")
+		HORN A 10 Offset(0, 30)
+		HORN B 2 Offset(4, 34)
+		HORN B 2 Offset(10, 38)
+		HORN B 2 Offset(15, 40)
+		HORN B 6 Offset(15, 41) A_PlaySound("Weapons/HORNCLP2")
+		HORF C 18 Offset(8, 39) A_PlaySound("Weapons/HORNCLP")
+		HORN B 2 Offset(2, 36) A_PlaySound("Weapons/HORNRC")
+		HORN A 2 Offset(2, 50)
+		HORN A 2 Offset(2, 39)
+		HORN A 2 Offset(2, 32)
+		Goto ReloadMoar
+	ReloadMoar:
+		HORN A 0 A_JumpIfInventory("HornetMag", 0, "Ready")
+		
+		HORN A 0 A_JumpIfInventory("Clip", 1, 1)
+		Goto Ready
+		
+		HORN A 0 A_GiveInventory("HornetMag", 1)
+		HORN A 0 A_TakeInventory("Clip", 1)
+		Loop
+	Reset:
+		TNT1 A 0
+		Goto Ready
+	Flash:
+		TNT1 A 2 bright
+		Stop
+	Spawn:
+		//nofuckyou
+		Stop
+	}
+}
