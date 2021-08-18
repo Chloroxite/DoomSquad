@@ -1,17 +1,22 @@
 Actor ARSwitchingModes : Inventory
 {
 	Inventory.MaxAmount 1
-	+IGNORESKILL
 }
 Actor Grenades : Ammo
 {
 	Inventory.MaxAmount 30
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 60
+	Inventory.Icon "ROCKA0"
 	+IGNORESKILL
 }
 
 Actor UACAmmo : Ammo
 {
-	Inventory.MaxAmount 200
+	Inventory.RestrictedTo "AssaultPlayer"
+	Inventory.MaxAmount 150
+	Ammo.BackpackAmount 8
+	Ammo.BackpackMaxAmount 300
 	+IGNORESKILL
 }
 
@@ -85,7 +90,7 @@ Actor UAC4A : Weapon
 		UAC4 A 1
 		UAC4 A 1 bright A_FireBullets (2,2,1,10,"BulletPuff")
 		UAC4 A 0 A_SetPitch(pitch-.8)
-		UACF A 1 A_PlaySound("Weapons/M4A1FIR", 1, 0.5)
+		UACF A 1 bright A_PlaySound("Weapons/M4A1FIR", 1, 0.5)
 		UACF B 1 Radius_Quake (1,1,0,1,0)
 		UACF B 0 A_TakeInventory("UACMag", 1)
 		UACF B 0 A_Refire

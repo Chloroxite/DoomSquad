@@ -1,4 +1,4 @@
-Actor PrimaryUpgrade : CustomInventory Replaces SuperShotgun
+Actor PrimaryUpReplaceSSG : CustomInventory Replaces SuperShotgun
 {
 	Inventory.PickupMessage "You've obtained your Primary Weapon Altfire upgrade! (Slot 3 Altfire)"
 	Inventory.PickupSound "Pickups/WPICK"
@@ -11,6 +11,7 @@ Actor PrimaryUpgrade : CustomInventory Replaces SuperShotgun
 	Pickup:
 		TNT1 A 0 A_GiveInventory("UAC4AGrenade", 1)
 		TNT1 A 0 A_GiveInventory("SG12SlugMode", 1)
+		TNT1 A 0 A_GiveInventory("RhinoRipper", 1)
 		Stop
 	}
 }

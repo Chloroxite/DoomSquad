@@ -1,2 +1,0 @@
-#include "DECORATE/Classes/Specialist/player.dec"
-#include "DECORATE/Classes/Specialist/primaryweap.dec"

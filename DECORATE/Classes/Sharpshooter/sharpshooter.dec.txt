@@ -1,0 +1,2 @@
+#include "DECORATE/Classes/Sharpshooter/player.dec"
+#include "DECORATE/Classes/Sharpshooter/primaryweap.dec"
