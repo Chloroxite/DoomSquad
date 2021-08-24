@@ -1,2 +1,3 @@
 #include DECORATE/Classes/Assault/player.dec
 #include DECORATE/Classes/Assault/primaryweap.dec
+#include DECORATE/Classes/Assault/secondaryweap.dec

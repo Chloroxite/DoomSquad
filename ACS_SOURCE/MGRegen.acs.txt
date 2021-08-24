@@ -1,0 +1,14 @@
+#include "zcommon.acs"
+script "global_healammoregen" enter
+{
+	ACS_NamedExecute("healammoregen", 0);
+}
+
+script "healammoregen" (void)
+{
+	while(true)
+	{
+		Delay(4);
+		GiveInventory("SMGHealerAmmo", 1);
+	}
+}

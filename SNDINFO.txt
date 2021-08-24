@@ -20,6 +20,8 @@ Weapons/SMGFIR SMGFIR
 Weapons/SMGR1 SMGR1
 Weapons/SMGR2 SMGR2
 Weapons/SMGPK SMGPK
+Weapons/SMGHL SMGHL
+Weapons/SMGHLIM SMGHLIM
 
 //Assault Rifle
 Weapons/M4A1FIR M4A1FIR
@@ -47,9 +49,20 @@ Weapons/LRDMRR3 LRDMRR3
 Weapons/LRDMRR2 LRDMRR2
 Weapons/LRDMRR1 LRDMRR1
 
+//-----------SECONDARY SLOT------------
+
+//Jackhammer
+Weapons/ASFIR ASFIR
+Weapons/ASR1 ASR1
+Weapons/ASR2 ASR2
+Weapons/ASR3 ASR3
+WEapons/ASPIK ASPIK
 
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK
+Pickups/HEALTH HEALTH
+Pickups/HEALTHSML HEALTHSML
+Pickups/AMPIK AMPIK
 
 //-----MISC Sounds-------
 Misc/EXPLOSION EXP1

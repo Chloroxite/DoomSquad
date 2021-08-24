@@ -8,6 +8,7 @@ Actor Grenades : Ammo
 	Ammo.BackpackAmount 1
 	Ammo.BackpackMaxAmount 60
 	Inventory.Icon "ROCKA0"
+	Inventory.RestrictedTo "AssaultPlayer"
 	+IGNORESKILL
 }
 
@@ -17,6 +18,7 @@ Actor UACAmmo : Ammo
 	Inventory.MaxAmount 150
 	Ammo.BackpackAmount 8
 	Ammo.BackpackMaxAmount 300
+	Inventory.RestrictedTo "AssaultPlayer"
 	+IGNORESKILL
 }
 
@@ -32,7 +34,7 @@ Actor UAC4A : Weapon
 	Inventory.PickupMessage "You got the UAC4A assault rifle!"
 	Weapon.SlotNumber 3
 	Weapon.Kickback 100
-	Weapon.AmmoType "Clip"
+	Weapon.AmmoType "UACAmmo"
 	Weapon.AmmoUse 0
 	Weapon.AmmoGive 4
 	Weapon.AmmoType2 "UACMag"
@@ -90,18 +92,21 @@ Actor UAC4A : Weapon
 		UAC4 A 1
 		UAC4 A 1 bright A_FireBullets (2,2,1,10,"BulletPuff")
 		UAC4 A 0 A_SetPitch(pitch-.8)
-		UACF A 1 bright A_PlaySound("Weapons/M4A1FIR", 1, 0.5)
+		UACF A 1 bright A_PlaySound("Weapons/M4A1FIR", 1, 0.8)
 		UACF B 1 Radius_Quake (1,1,0,1,0)
 		UACF B 0 A_TakeInventory("UACMag", 1)
 		UACF B 0 A_Refire
 		Goto Ready
 	AltFire:
+		TNT1 A 0 A_JumpIfInventory("UAC4AGrenade", 1, 1)
+		Goto Ready
+		
 		TNT1 A 0 A_GiveInventory("ARSwitchingModes", 1)
 		UAC4 A 0 A_SelectWeapon("UAC4AGrenade")
 		Goto Reset
 	Reload:
 		UAC4 A 0 A_JumpIfInventory("UACMag", 0, "Reset")
-		UAC4 A 0 A_JumpIfInventory("Clip", 1, 1)
+		UAC4 A 0 A_JumpIfInventory("UACAmmo", 1, 1)
 		Goto Reset
 		
 		UAC4 A 2
@@ -130,11 +135,11 @@ Actor UAC4A : Weapon
 	ReloadLoop:
 		TNT1 A 0 A_JumpIfInventory("UACMag", 0, "Ready")
 	
-		TNT1 A 0 A_JumpIfInventory("Clip", 1, 1)
+		TNT1 A 0 A_JumpIfInventory("UACAmmo", 1, 1)
 		Goto Ready
 	
 		TNT1 A 0 A_GiveInventory("UACMag", 1)
-		TNT1 A 0 A_TakeInventory("Clip", 1)
+		TNT1 A 0 A_TakeInventory("UACAmmo", 1)
 		Loop
 	Reset:
 		TNT1 A 0

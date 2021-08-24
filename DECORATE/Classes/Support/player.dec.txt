@@ -1,6 +1,12 @@
+actor IsSupport : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
 actor SupportPlayer : DoomPlayer
 {
 	Player.DisplayName "Support"
 	Player.StartItem "Hornet", 1
 	Player.StartItem "Clip", 50
+	Player.StartItem "IsSupport", 1
 }

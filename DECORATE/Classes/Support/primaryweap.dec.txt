@@ -2,6 +2,15 @@ actor SGSwitchingModes : Inventory
 {
 	Inventory.MaxAmount 1
 }
+Actor Shells : Ammo
+{
+	+IGNORESKILL
+	Inventory.RestrictedTo "SupportPlayer"
+	Inventory.MaxAmount 40
+	Ammo.BackpackAmount 2
+	Ammo.BackpackMaxAmount 80
+	Inventory.Icon "SHELA0"
+}
 actor Slugs : Ammo
 {
 	+IGNORESKILL
@@ -22,7 +31,7 @@ actor SG12 : Weapon
 	Obituary "%o was given facial deconstruction surgery by %k's shotgun."
 	Weapon.AmmoUse 0
 	Weapon.AmmoGive 2
-	Weapon.AmmoType "Shell"
+	Weapon.AmmoType "Shells"
 	Weapon.AmmoGive2 0
 	Weapon.AmmoType2 "SGMag"
 	Weapon.SlotNumber 3
@@ -72,7 +81,7 @@ actor SG12 : Weapon
 		DNSG J 1 Offset(-30, 46)
 		DNSG F 1 Offset(-42, 35)
 		DNSG F 1 Offset(-20, 35)
-		DNSG F 1 Offset(-3, 35) A_TakeInventory("SGSwitchingModes", 1)
+		DNSG F 1 Offset(-3, 35) 
 		Goto Ready
 	SelectMode:
 		DNSG A 2 Offset(-3, 35) A_PlaySound("Weapons/SGPUMP1")
@@ -81,7 +90,7 @@ actor SG12 : Weapon
 		DNSG F 2 Offset(-22, 38)
 		DNSG F 2 Offset(-22, 37)
 		DNSG F 2 Offset(-20, 36)
-		DNSG F 2 Offset(-3, 35)
+		DNSG F 2 Offset(-3, 35) A_TakeInventory("SGSwitchingModes", 1)
 		Goto Ready
 	Fire:
 		TNT1 A 0 A_JumpIfInventory("SGMag", 1, 1)
@@ -90,7 +99,8 @@ actor SG12 : Weapon
 		TNT1 A 0 A_Recoil(2)
 		TNT1 A 0 A_ZoomFactor(0.98,ZOOM_NOSCALETURNING)
 		TNT1 A 0 A_GunFlash
-		DNSG B 1 bright A_FireBullets (4, 3, 7, 10, "BulletPuff", FBF_NORANDOM)
+		DNSG B 1 bright A_FireBullets (8, 0, 10, 8, "BulletPuff", FBF_NORANDOM)
+		DNSG B 0 bright A_FireBullets (0, 3, 4, 8, "BulletPuff", FBF_NORANDOM)
 		TNT1 A 0 A_SetPitch(pitch-3)
 		DNSG B 0 A_PlaySound("Weapons/SGFIR", 1, 0.5)
 		DNSG B 0 A_TakeInventory(SGMag, 1)
@@ -108,11 +118,14 @@ actor SG12 : Weapon
 		DNSG A 8 
 		Goto Ready
 	AltFire:
+		TNT1 A 0 A_JumpIfInventory("SG12SlugMode", 1, 1)
+		Goto Ready
+	
 		TNT1 A 0 A_GiveInventory("SGSwitchingModes", 1)
 		TNT1 A 0 A_SelectWeapon("SG12SlugMode")
 		Goto Reset
 	Reload:
-		DNSG A 0 A_JumpIfInventory("Shell", 1, 1)
+		DNSG A 0 A_JumpIfInventory("Shells", 1, 1)
 		Goto Reset
 		
 		DNSG A 0 A_JumpIfInventory("SGMag", 0, "Reset")
@@ -123,7 +136,7 @@ actor SG12 : Weapon
 		DNSG L 10
 		DNSG L 2 Offset(0,-15)
 		DNSG L 2 Offset(0, -28)
-		DNSG L 0 A_TakeInventory("Shell", 1)
+		DNSG L 0 A_TakeInventory("Shells", 1)
 		DNSG L 0 A_GiveInventory("SGMag", 1)
 		DNSG L 2 Offset(0, -30) A_PlaySound("Weapons/SGRELOAD")
 		DNSG L 2 Offset(0, -28)
@@ -138,7 +151,7 @@ actor SG12 : Weapon
 		
 		DNSG J 6 Offset(0, 20)
 		DNSG J 2 Offset(0,8)
-		DNSG J 0 A_TakeInventory("Shell", 1)
+		DNSG J 0 A_TakeInventory("Shells", 1)
 		DNSG J 0 A_GiveInventory("SGMag", 1)
 		DNSG J 2 Offset(0, -10) A_PlaySound("Weapons/SGRELOAD")
 		DNSG J 2 Offset(0, 7)

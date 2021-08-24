@@ -1,7 +1,13 @@
+actor IsAssault : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
 actor AssaultPlayer : DoomPlayer
 {
 	Player.DisplayName "Assault"
 	Player.StartItem "Hornet", 1
 	Player.StartItem "Clip", 50
+	Player.StartItem "IsAssault", 1
 	
 }

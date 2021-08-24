@@ -12,6 +12,8 @@ Actor PrimaryUpReplaceSSG : CustomInventory Replaces SuperShotgun
 		TNT1 A 0 A_GiveInventory("UAC4AGrenade", 1)
 		TNT1 A 0 A_GiveInventory("SG12SlugMode", 1)
 		TNT1 A 0 A_GiveInventory("RhinoRipper", 1)
-		Stop
+		TNT1 A 0 A_GiveInventory("BadgerHealer", 1)
+		TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("ObtainProperties", 2) == 0, "spawn")
+		stop
 	}
 }

@@ -11,3 +11,9 @@ Autoshotgun sprite - Stronghold: On the Edge of Chaos
  so please, someone knows who made this sprite please tell me)
 Title Card - Demiero (Fellow member of Voidsoft)
 Rhino Revolver - ProgrammerNetwork (Rigged from Fallout Mod, found on DeviantArt)
+Assault Rifle Sound - Insurgency
+Hand Sprites were pulled from a large spritesheet compiled by WildWeasel and MartyKirra
+Figured out how to handle weapon pickups from Wrath of Chronos (Made by Thetis), and from Samsara (Made by TerminusEst)
+Ammo pickup sound from UT99
+Respawn sound from UT99
+Small Health sound from UT99

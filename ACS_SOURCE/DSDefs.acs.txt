@@ -1,0 +1,63 @@
+#library "DSDefs"
+
+str DS_WEAPONNAMES[5][4] =
+{
+	{"UAC4A", "UAC4AGrenade", "Jackhammer", ""},//Assault
+	{"Badger", "BadgerHealer", "", ""},//Medic
+	{"Rhino", "RhinoRipper", "", ""},//Sharpshooter
+	{"SG12", "SG12SlugMode", "", ""},//Support
+};
+
+str DS_AMMONAMES[5][4] =
+{
+	{"UACAmmo", "Grenades", "JHAmmo", "JHSAmmo"},
+	{"SMGAmmo", "SMGHealerAmmo", "", ""},
+	{"RhinoAmmo", "RhinoRipperAmmo", "", ""},
+	{"Shells", "Slugs", "", ""},
+};
+
+int DS_AMMOCOUNTS[5][4] =
+{
+	{10, 1, 2, 2},
+	{10, 0, 0, 0},
+	{2, 1, 0, 0},
+	{4, 2, 0, 0},
+};
+
+str DS_WEAPONPCKMSGS[5][4] =
+{
+	//Assault
+	{
+		"You got the UAC4A assault rifle! (Slot 3)", 
+		"You got the UAC4A Grenade Launcher! (Slot 3 Altfire)", 
+		"You got the Jackhammer Automatic Shotgun! (Slot 4)", 
+		""
+	},
+	//Medic
+	{
+		"You got the Badger! (Slot 3)", 
+		"You got the Badger Healing Dart Module! (Slot 3 Altfire)", 
+		"", 
+		""
+	},
+	//Sharpshooter
+	{
+		"You got the Rhino hand cannon! (Slot 3)", 
+		"You got the Rhino Ripper chamber. Fuck some shit up. (Slot 3 Altfire)", 
+		"", 
+		""
+	},
+	//Support
+	{
+		"You've picked up the SG12 Shotgun! (Slot 3)", 
+		"You've picked up the SG12 Slug module! (Slot 3 Altfire)", 
+		"", 
+		""
+	}
+};
+
+str logcolors[22] = 
+{
+    "\ca", "\cb", "\cc", "\cd", "\ce", "\cf", "\cg", "\ch", "\ci", "\cj", "\ck",
+    "\cl", "\cm", "\cn", "\co", "\cp", "\cq", "\cr", "\cs", "\ct", "\cu", "\cv"
+};
