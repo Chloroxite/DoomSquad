@@ -1,3 +1,7 @@
+//When this weapon was made, the sharpshooter was originally going to be called the specialist, with an emphasis on high single target dps through sniping.
+//What ended up happening is I found this weapon stupidly boring to use, nothing about it felt good. So I rebranded the specialist as the sharpshooter, and gave
+//him a god damn hand cannon straight out of thor's asshole. A much needed improvement. This weapon sits here unused. You can fuck with it if you want.
+
 Actor DMRMag : Ammo
 {
 	Inventory.MaxAmount 12

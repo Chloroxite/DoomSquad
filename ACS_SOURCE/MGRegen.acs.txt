@@ -10,5 +10,6 @@ script "healammoregen" (void)
 	{
 		Delay(4);
 		GiveInventory("SMGHealerAmmo", 1);
+		GiveInventory("Adrenaline", 1);
 	}
 }

@@ -1,4 +1,213 @@
-Actor Vaporizor : Weapon
+Actor VShell : Ammo
 {
+	Inventory.MaxAmount 40
+	Inventory.Icon "SHELA0"
+	Ammo.BackpackMaxAmount 80
+	Inventory.RestrictedTo "MedicPlayer"
+	+IGNORESKILL
+}
+Actor VMag : Ammo
+{
+	Inventory.MaxAmount 2
+	Inventory.RestrictedTo "MedicPlayer"
+	+IGNORESKILL
+}
+Actor Adrenaline : Ammo
+{
+	Inventory.MaxAmount 100
+	Inventory.RestrictedTo "MedicPlayer"
+	+IGNORESKILL
+}
+Actor VSwitchingMode : Inventory
+{
+	Inventory.MaxAmount 1
+}
 
+Actor Vaporizer : Weapon
+{
+	Obituary "%o was introduced to the Evil Dead movies by %k's Vaporizer."
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 4
+	Weapon.AmmoType "VShell"
+	Weapon.AmmoUse2 0
+	Weapon.AmmoGive2 0
+	Weapon.AmmoType2 "VMag"
+	Weapon.SlotNumber 4
+	Decal BulletChip
+	Tag "Vaporizer"
+	Inventory.RestrictedTo "MedicPlayer"
+	Inventory.PickupMessage "You somehow picked up a Vaporizer straight off the ground..."
+	
+	+WEAPON.AMMO_CHECKBOTH
+	+WEAPON.NOAUTOFIRE
+	
+	states
+	{
+	Select:
+		TNT1 A 0 A_Raise
+		TNT1 A 0 A_JumpIfInventory("VSwitchingMode", 1, "SelectMode")
+		SSGR C 1 Offset(-82, 35)
+		SSGR C 1 Offset(-12, 35)
+		SSGR B 1 Offset(-12, 35)
+		SSGR B 1 Offset(6, 35)
+		SSGR A 1 Offset(6, 35)
+		SSGR A 1 Offset(8, 35)
+		Goto Ready
+	SelectMode:
+		SSGS A 1 Offset(0, 35)
+		SSGS A 1 Offset(0, 37)
+		SSGS A 1 Offset(0, 43) A_PlaySound("Weapons/M4A1R2")
+		SSGS A 1 Offset(0, 37)
+		SSGS A 1 Offset(0, 35) A_TakeInventory("VSwitchingMode", 1)
+		Goto Ready
+	Deselect:
+		TNT1 A 0 A_JumpIfInventory("VSwitchingMode", 1, "DeselectMode")
+		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+		
+		SSGR A 1 Offset(8, 35)
+		SSGR A 1 Offset(6, 35)
+		SSGR B 1 Offset(6, 35)
+		SSGR B 1 Offset(-12, 35)
+		SSGR C 1 Offset(-12, 35)
+		SSGR C 1 Offset(-82, 35)
+		TNT1 A 0 A_Lower
+		Wait
+	DeselectMode:
+		SSGS A 0 A_Lower
+		Wait
+	DeselectDeath:
+		TNT1 A 0 A_TakeInventory("VSwitchingMode", 1)
+		SSGS A 1 A_Lower
+		Wait
+	Ready:
+		SSGS A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("VMag", 1, 1)
+		Goto Reload
+		
+		SSGF A 1 bright A_FireBullets(8, 6, 8, 10, "BulletPuff", FBF_NORANDOM)
+		TNT1 A 0 A_PlaySound("Weapons/DBFIR", 1, 0.5)
+		TNT1 A 0 A_Recoil(5)
+		TNT1 A 0 A_SetPitch(pitch-5)
+		TNT1 A 0 A_TakeInventory("VMag", 1)
+		SSGF B 1
+		SSGS A 1
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_JumpIfInventory("VAdrenaline", 1, 1)
+		Goto Ready
+		
+		TNT1 A 0 A_GiveInventory("VSwitchingMode", 1)
+		TNT1 A 0 A_SelectWeapon("VAdrenaline")
+		Goto Ready
+	Reload:
+		TNT1 A 0 A_JumpIfInventory("VMag", 0, "Ready") 
+		TNT1 A 0 A_JumpIfInventory("VShell", 2, 1)
+		Goto Ready
+		
+		SSGS A 2
+		SSGR B 2
+		SSGR C 2
+		SSGR C 6 Offset(-12, 0)
+		SSGR C 2 Offset(-8, 0)
+		SSGR A 2 
+		SSGR A 2 Offset(-4, 0)
+		SSGR D 10 A_PlaySound("Weapons/DBR1")
+		SSGR D 2
+		SSGR E 2
+		SSGR G 2
+		SSGR H 2
+		SSGR I 2 A_PlaySound("Weapons/DBR2", 1)
+		SSGR I 2 Offset(0, 72) A_PlaySound("Weapons/DBR3", 1)
+		TNT1 A 4
+		SSGS A 2 Offset(0, 35)
+		SSGR B 2
+		SSGR C 2
+		SSGR C 6 Offset(-16, 0) A_PlaySound("Weapons/DBR4", 1)
+		SSGR C 2 Offset(1, 0)
+		SSGR B 2 Offset(12, 0)
+		SSGR A 2 Offset(6, 0)
+		SSGS A 2 Offset(-2, 33)
+		SSGS A 2
+		Goto ReloadLoop
+	ReloadLoop:
+		TNT1 A 0 A_JumpIfInventory("VMag", 0, "Ready")
+		TNT1 A 0 A_JumpIfInventory("VShell", 1, 1)
+		Goto Ready
+		
+		TNT1 A 0 A_GiveInventory("VMag", 1)
+		TNT1 A 0 A_TakeInventory("VShell", 1)
+		Loop
+	}
+}
+
+Actor VAdrenaline : Vaporizer
+{
+	Obituary "are you fucking serious?"
+	Weapon.AmmoType "Adrenaline"
+	Weapon.SlotNumber ""
+	states
+	{
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Adrenaline", 75, 1)
+		Goto Ready
+		
+		SSGS A 1 A_TakeInventory("Adrenaline", 75)
+		SSGS A 1 Offset(0, 43) A_FireCustomMissile("BuffingBoolet")
+		SSGS A 0 A_PlaySound("Weapons/SMGHL", 1, 0.5)
+		SSGS A 1 Offset(0, 37)
+		SSGS A 20 Offset(0, 35)
+		Goto Ready
+	AltFire:
+		TNT1 A 0 A_GiveInventory("VSwitchingMode", 1)
+		TNT1 A 0 A_SelectWeapon("Vaporizer")
+		Goto Ready
+	}
+}
+
+Actor DamageReduction : PowerProtection
+{
+	DamageFactor 0.15
+}
+
+Actor Toughness : PowerupGiver
+{
+	 inventory.pickupmessage "You've been buffed!"
+	 inventory.icon "MEGAA0"
+	 powerup.color darkblue 0.1
+	 inventory.maxamount 0
+	 inventory.usesound "pickups/slowmo"
+	 powerup.type "Regeneration"
+	 powerup.duration 400
+	 +AUTOACTIVATE
+	 +INVENTORY.FANCYPICKUPSOUND
+}
+
+Actor BuffingBoolet : FastProjectile
+{
+	Damage 1
+    Radius 1
+    Height 1
+    Speed 500
+    Projectile
+    Obituary "How the hell did you manage to die to this?"
+    Renderstyle "Normal"
+    Scale 0.5
+    +FORCERADIUSDMG
+	+BLOODSPLATTER
+    +NOTIMEFREEZE
+	states
+	{
+	Spawn:
+		TNT1 A 1
+		Loop
+	Death:
+		PUFF A 0 A_NoGravity
+		PUFF A 0 A_PlaySound("Weapons/SMGHLIM")
+		PUFF B 4 A_RadiusGive("Toughness", 40, RGF_PLAYERS, 1)
+		PUFF C 4
+		PUFF D 4
+		Stop
+	}
 }

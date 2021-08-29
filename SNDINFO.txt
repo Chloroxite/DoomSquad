@@ -56,7 +56,15 @@ Weapons/ASFIR ASFIR
 Weapons/ASR1 ASR1
 Weapons/ASR2 ASR2
 Weapons/ASR3 ASR3
-WEapons/ASPIK ASPIK
+Weapons/ASPIK ASPIK
+
+//Vaporizer
+Weapons/DBFIR DBFIR
+Weapons/DBR1 DBR1
+Weapons/DBR2 DBR2
+Weapons/DBR3 DBR3
+Weapons/DBR4 DBR4
+Weapons/DBFIR2 DBFIR2
 
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK

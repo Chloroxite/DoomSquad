@@ -25,7 +25,6 @@ Actor RhinoAmmo : Ammo
 	Inventory.RestrictedTo "SharpshooterPlayer"
 	Inventory.MaxAmount 80
 	Ammo.BackpackMaxAmount 160
-	Inventory.Icon "RHNAA0"
 	+IGNORESKILL
 }
 Actor RipperAmmo : Ammo
@@ -33,7 +32,6 @@ Actor RipperAmmo : Ammo
 	Inventory.RestrictedTo "SharpshooterPlayer"
 	Inventory.MaxAmount 40
 	Ammo.BackpackMaxAmount 80
-	Inventory.Icon "TNKBA0"
 	+IGNORESKILL
 }
 Actor RhinoMag : Ammo

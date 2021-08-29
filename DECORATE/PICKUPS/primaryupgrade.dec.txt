@@ -1,19 +1,45 @@
 Actor PrimaryUpReplaceSSG : CustomInventory Replaces SuperShotgun
 {
-	Inventory.PickupMessage "You've obtained your Primary Weapon Altfire upgrade! (Slot 3 Altfire)"
-	Inventory.PickupSound "Pickups/WPICK"
+	Inventory.PickupMessage ""
+	Inventory.PickupSound ""
 	+COUNTITEM
 	states
 	{
 	Spawn:
-		PUBX A -1
+		PUBX A 0
+		PUBX A 0 A_JumpIf(ACS_NamedExecuteWithResult("WasIDropped") == 1, "IWasDroppedOnMyHead")
+		PUBX A 35 A_JumpIf(1 == 1, "SpriteLoop")
+		Wait
+	SpriteLoop:
+		PUBX A 1 A_ChangeFlag("FLOATBOB", 0)
+		Loop
+	IWasDroppedOnMyHead:
+		TNT1 A 0 A_Print("This item has been dropped")
+		PUBX A 1 A_SpawnItemEX("PrimaryUpDrop", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM)
 		Stop
 	Pickup:
-		TNT1 A 0 A_GiveInventory("UAC4AGrenade", 1)
-		TNT1 A 0 A_GiveInventory("SG12SlugMode", 1)
-		TNT1 A 0 A_GiveInventory("RhinoRipper", 1)
-		TNT1 A 0 A_GiveInventory("BadgerHealer", 1)
-		TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("ObtainProperties", 2) == 0, "spawn")
-		stop
+		TNT1 A 0 A_JumpIf((ACS_NamedExecuteWithResult("DS_GiveWeapons", 2, 0) & 3) == 1, "DespawnPickup")
+		Goto RetainPickup
+	RetainPickup:
+		TNT1 A 0 A_ChangeFlag("FLOATBOB", 0) //Hehe funny story: For some reason changing this random ass flag makes this work...
+		Fail
+	DespawnPickup:
+		TNT1 A 0 A_ChangeFlag("FLOATBOB", 0)
+		Stop
+	}
+}
+
+Actor PrimaryUpReplaceCG : PrimaryUpReplaceSSG Replaces Chaingun {}
+
+Actor PrimaryUpDrop : PrimaryUpReplaceSSG
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0
+		Goto SpriteLoop
+	Pickup:
+		TNT1 A 0 A_JumpIf((ACS_NamedExecuteWithResult("DS_GiveWeapons", 2, 1) & 1) == 1, "DespawnPickup")
+		Goto RetainPickup
 	}
 }

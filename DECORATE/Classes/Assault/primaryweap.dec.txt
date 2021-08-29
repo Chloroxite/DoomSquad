@@ -90,7 +90,7 @@ Actor UAC4A : Weapon
 		Goto Reload
 		
 		UAC4 A 1
-		UAC4 A 1 bright A_FireBullets (2,2,1,10,"BulletPuff")
+		UAC4 A 1 bright A_FireBullets (2,2,1,18,"BulletPuff", FBF_NORANDOM)
 		UAC4 A 0 A_SetPitch(pitch-.8)
 		UACF A 1 bright A_PlaySound("Weapons/M4A1FIR", 1, 0.8)
 		UACF B 1 Radius_Quake (1,1,0,1,0)

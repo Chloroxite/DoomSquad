@@ -1,2 +1,3 @@
 #include DECORATE/Classes/Medic/player.dec
 #include DECORATE/Classes/Medic/primaryweap.dec
+#include DECORATE/Classes/Medic/secondaryweap.dec

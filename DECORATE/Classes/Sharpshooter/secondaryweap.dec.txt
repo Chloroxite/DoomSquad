@@ -1,0 +1,11 @@
+Actor FRAmmo : Ammo
+{
+	Inventory.MaxAmount 50
+	Inventory.RestrictedTo "SharpshooterPlayer"
+	Ammo.BackpackMaxAmount 100
+}
+
+Actor FleshRender : Weapon
+{
+	
+}

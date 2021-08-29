@@ -7,6 +7,5 @@ Actor SharpshooterPlayer : DoomPlayer
 {
 	Player.DisplayName "Sharpshooter"
 	Player.StartItem "Hornet", 1
-	Player.StartItem "Clip", 50
 	Player.StartItem "IsSharpshooter", 1
 }

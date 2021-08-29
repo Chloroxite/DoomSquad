@@ -11,7 +11,7 @@ script "DS_GiveWeapons" (int wep, int dropped)
 	int success = 0;
 	int weaponstay = !!GetCVar("sv_weaponstay");
 	bool AmmoFull = ((CheckInventory(DS_AMMONAMES[class][wep-1])) == (GetAmmoCapacity(DS_AMMONAMES[class][wep-1])));
-	log(b:AmmoFull);
+	//log(b:AmmoFull);
 	
 	if((!hasWeapon && !GetCVar("sv_weaponstay")) || (!hasWeapon && dropped == 1))
 	{

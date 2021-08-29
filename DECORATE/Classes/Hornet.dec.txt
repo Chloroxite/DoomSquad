@@ -19,7 +19,11 @@ actor Hornet : Weapon replaces Pistol
 	States
 	{
 	Ready:
-		HORN A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		HORN A 24 A_WeaponReady(WRF_ALLOWRELOAD)
+		HORB A 4 A_WeaponReady(WRF_ALLOWRELOAD)
+		HORB B 48 A_WeaponReady(WRF_ALLOWRELOAD) //This was a quick experiment: Can I add idle animations?
+		HORB A 4 A_WeaponReady(WRF_ALLOWRELOAD) //The answer was yes, and I like how it looks. I might add more later.
+		HORN A 24 A_WeaponReady(WRF_ALLOWRELOAD)
 		Loop
 	Deselect:
 		HORN A 1 Offset(4, 32)

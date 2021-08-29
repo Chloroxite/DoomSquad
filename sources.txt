@@ -1,9 +1,9 @@
-A bunch of sprites for later - https://forum.zdoom.org/viewtopic.php?f=37&t=37556
+
 Assault Rifle - Resident Evil 6 (Ripped by Adngel from DeviantArt)
 Pistol Sound - Killing Floor IJC Weapon Pack
 A bunch of other weapon sounds - Killing Floor
 Shotgun Sprite - JoeyTD, WildWeasel
-Weapon and Ammo Crate sprites - Ac!d
+Weapon and Ammo Crate sprites - Ac!d (Edited by me)
 MP5K Sprites - aeea7835(On Deviantart)
 Explosion sound - 3P Sound Pack Vanilla Edition
 Autoshotgun sprite - Stronghold: On the Edge of Chaos
@@ -17,3 +17,4 @@ Figured out how to handle weapon pickups from Wrath of Chronos (Made by Thetis),
 Ammo pickup sound from UT99
 Respawn sound from UT99
 Small Health sound from UT99
+Vaporizer Firing sound - Killing Floor IJC Weapon Pack

@@ -11,9 +11,9 @@ Actor SMGMag : Ammo
 Actor SMGAmmo : Ammo
 {
 	Inventory.RestrictedTo "MedicPlayer"
-	Inventory.MaxAmount 200
+	Inventory.MaxAmount 150
 	Ammo.BackpackAmount 10
-	Ammo.BackpackMaxAmount 400
+	Ammo.BackpackMaxAmount 300
 	+IGNORESKILL
 }
 Actor SMGHealerAmmo : Ammo
@@ -28,7 +28,7 @@ Actor Badger : Weapon
 	Obituary "%o was widdled away by %k's Badger."
 	Weapon.AmmoUse 0
 	Weapon.AmmoGive 4
-	Weapon.AmmoType "Clip"
+	Weapon.AmmoType "SMGAmmo"
 	Weapon.AmmoGive2 0
 	Weapon.AmmoType2 "SMGMag"
 	Weapon.SlotNumber 3
@@ -96,7 +96,7 @@ Actor Badger : Weapon
 			Goto Reload
 			
 			MP5K A 1 A_TakeInventory("SMGMag", 1)
-			MP5F A 1 bright A_FireBullets(5, 4, -1, 6, "BulletPuff")
+			MP5F A 1 bright A_FireBullets(5, 4, -1, 16, "BulletPuff", FBF_NORANDOM)
 			MP5K A 0 A_SetPitch(pitch-1)
 			MP5F A 0 A_PlaySound("Weapons/SMGFIR", 1, 0.8)
 			MP5F B 1
@@ -111,7 +111,7 @@ Actor Badger : Weapon
 			Goto Ready
 		Reload:
 			TNT1 A 0 A_JumpIfInventory("SMGMag", 0, "Reset")
-			TNT1 A 0 A_JumpIfInventory("Clip", 1, 1)
+			TNT1 A 0 A_JumpIfInventory("SMGAmmo", 1, 1)
 			Goto Reset
 			
 			MP5K A 2
@@ -133,11 +133,11 @@ Actor Badger : Weapon
 		ReloadLoop:
 			HORN A 0 A_JumpIfInventory("SMGMag", 0, "Ready")
 		
-			HORN A 0 A_JumpIfInventory("Clip", 1, 1)
+			HORN A 0 A_JumpIfInventory("SMGAmmo", 1, 1)
 			Goto Ready
 		
 			HORN A 0 A_GiveInventory("SMGMag", 1)
-			HORN A 0 A_TakeInventory("Clip", 1)
+			HORN A 0 A_TakeInventory("SMGAmmo", 1)
 			Loop
 		Reset:
 			TNT1 A 0
@@ -181,7 +181,6 @@ Actor HealingOverTime : PowerupGiver
 	 inventory.usesound "pickups/slowmo"
 	 powerup.type "Regeneration"
 	 powerup.duration 150
-	 translation "128:143=64:79"
 	 +AUTOACTIVATE
 	 +INVENTORY.FANCYPICKUPSOUND
 }
@@ -196,7 +195,6 @@ Actor HealingBoolet : FastProjectile
     Obituary "How the hell did you manage to die to this?"
     Renderstyle "Normal"
     Scale 0.5
-    Decal DoomImpScorch
     +FORCERADIUSDMG
 	+BLOODSPLATTER
     +NOTIMEFREEZE
