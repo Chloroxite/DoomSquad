@@ -18,3 +18,7 @@ Ammo pickup sound from UT99
 Respawn sound from UT99
 Small Health sound from UT99
 Vaporizer Firing sound - Killing Floor IJC Weapon Pack
+Rocket Launcher Sounds - A mix of Brutal Doom, Complex Doom, and Killing Floor
+
+If you see anything in here that's yours and it's not listed, please just let me know.
+I'd be happy to sort things out.

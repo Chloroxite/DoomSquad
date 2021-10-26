@@ -1,0 +1,24 @@
+actor BulletTrail
+{
+	Damage 0
+    Radius 1
+    Height 1
+    Speed 200
+    Projectile
+    Obituary "This literally shouldn't be able to kill you..."
+    Renderstyle "Normal"
+    Species "Player"
+    Scale 1
+    +FORCERADIUSDMG
+	+BLOODSPLATTER
+    +THRUSPECIES
+	states
+	{
+	Spawn:
+		TRAI A 1 bright
+		Loop
+	Death:
+		TNT1 A 0
+		Stop
+	}
+}

@@ -2,26 +2,26 @@
 
 str DS_WEAPONNAMES[5][4] =
 {
-	{"UAC4A", "UAC4AGrenade", "Jackhammer", ""},//Assault
-	{"Badger", "BadgerHealer", "", ""},//Medic
-	{"Rhino", "RhinoRipper", "", ""},//Sharpshooter
-	{"SG12", "SG12SlugMode", "", ""},//Support
+	{"UAC4A", "UAC4AGrenade", "Jackhammer", "JackhammerSweeper"},//Assault
+	{"Badger", "BadgerHealer", "Vaporizer", "VAdrenaline"},//Medic
+	{"Rhino", "RhinoRipper", "FleshRender", "FleshSploder"},//Sharpshooter
+	{"SG12", "SG12SlugMode", "Pulverizer", "FlakMan"},//Support
 };
 
 str DS_AMMONAMES[5][4] =
 {
 	{"UACAmmo", "Grenades", "JHAmmo", "JHSAmmo"},
-	{"SMGAmmo", "SMGHealerAmmo", "", ""},
-	{"RhinoAmmo", "RhinoRipperAmmo", "", ""},
-	{"Shells", "Slugs", "", ""},
+	{"SMGAmmo", "SMGHealerAmmo", "VShell", "Adrenaline"},
+	{"RhinoAmmo", "RipperAmmo", "FRAmmo", "FSAmmo"},
+	{"Shells", "Slugs", "Rockets", "Flak"},
 };
 
 int DS_AMMOCOUNTS[5][4] =
 {
-	{10, 1, 2, 2},
-	{10, 0, 0, 0},
-	{2, 1, 0, 0},
-	{4, 2, 0, 0},
+	{10, 1, 2, 1},
+	{10, 0, 4, 0},
+	{2, 1, 2, 1},
+	{4, 2, 1, 1},
 };
 
 str DS_WEAPONPCKMSGS[5][4] =
@@ -31,28 +31,28 @@ str DS_WEAPONPCKMSGS[5][4] =
 		"You got the UAC4A assault rifle! (Slot 3)", 
 		"You got the UAC4A Grenade Launcher! (Slot 3 Altfire)", 
 		"You got the Jackhammer Automatic Shotgun! (Slot 4)", 
-		""
+		"You got the Jackhammer Sweepeer Module! (Slot 4 Altfire)"
 	},
 	//Medic
 	{
 		"You got the Badger! (Slot 3)", 
 		"You got the Badger Healing Dart Module! (Slot 3 Altfire)", 
-		"", 
-		""
+		"You got the Vaporizer Double Barrelled Shotgun. (Slot 4)", 
+		"You got the Vaporizer Adrenaline Dart Module! (Slot 4 Altfire)"
 	},
 	//Sharpshooter
 	{
 		"You got the Rhino hand cannon! (Slot 3)", 
 		"You got the Rhino Ripper chamber. Fuck some shit up. (Slot 3 Altfire)", 
-		"", 
-		""
+		"You got the Fleshrender Crossbow. Snipin's a good job. (Slot 4)", 
+		"You got the Fleshsploder bolt charger module! Time to do some 'splodin. (Slot 4 Altfire)"
 	},
 	//Support
 	{
 		"You've picked up the SG12 Shotgun! (Slot 3)", 
 		"You've picked up the SG12 Slug module! (Slot 3 Altfire)", 
-		"", 
-		""
+		"You've got the Pulverizer Rocket Launcher! (Slot 4)", 
+		"You've got the FlakMan Module! Deliver some flak! (Slot 4 Altfire)"
 	}
 };
 

@@ -1,0 +1,1 @@
+#INCLUDE DECORATE/EFFECTS/weapeffects.dec

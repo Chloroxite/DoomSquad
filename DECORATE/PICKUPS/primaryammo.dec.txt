@@ -16,3 +16,58 @@ Actor SmallPrimaryAmmo : CustomInventory replaces clip
 		stop
 	}
 }
+
+Actor SmallPrimaryAltAmmo : CustomInventory replaces shell
+{
+	Inventory.PickupMessage "Picked up some primary alternate ammo."
+	Inventory.PickupSound "Pickups/AMPIK"
+	+COUNTITEM
+	states
+	{
+	Spawn:
+		PUAB A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Grenades", 1)
+		TNT1 A 0 A_GiveInventory("Slugs", 2)
+		TNT1 A 0 A_GiveInventory("RipperAmmo", 1)
+		stop
+	}
+}
+
+Actor LargePrimaryAmmo : CustomInventory replaces clipbox
+{
+	Inventory.PickupMessage "Picked up a large box of primary ammo."
+	Inventory.PickupSound "Pickups/AMPIK"
+	+COUNTITEM
+	states
+	{
+	Spawn:
+		BAB1 A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("UACAmmo", 40)
+		TNT1 A 0 A_GiveInventory("Shells", 16)
+		TNT1 A 0 A_GiveInventory("RhinoAmmo", 8)
+		TNT1 A 0 A_GiveInventory("SMGAmmo", 40)
+		stop
+	}
+}
+
+Actor LargePrimaryAltAmmo : CustomInventory replaces shellbox
+{
+	Inventory.PickupMessage "Picked up a large box of primary alternate ammo."
+	Inventory.PickupSound "Pickups/AMPIK"
+	+COUNTITEM
+	states
+	{
+	Spawn:
+		BAB2 A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Grenades", 4)
+		TNT1 A 0 A_GiveInventory("Slugs", 8)
+		TNT1 A 0 A_GiveInventory("RipperAmmo", 4)
+		stop
+	}
+}

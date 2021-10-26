@@ -1,2 +1,3 @@
 #include "DECORATE/Classes/Sharpshooter/player.dec"
 #include "DECORATE/Classes/Sharpshooter/primaryweap.dec"
+#include "DECORATE/Classes/Sharpshooter/secondaryweap.dec"

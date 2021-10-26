@@ -29,8 +29,6 @@ Actor PrimaryUpReplaceSSG : CustomInventory Replaces SuperShotgun
 	}
 }
 
-Actor PrimaryUpReplaceCG : PrimaryUpReplaceSSG Replaces Chaingun {}
-
 Actor PrimaryUpDrop : PrimaryUpReplaceSSG
 {
 	states

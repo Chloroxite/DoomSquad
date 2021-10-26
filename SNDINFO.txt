@@ -66,6 +66,16 @@ Weapons/DBR3 DBR3
 Weapons/DBR4 DBR4
 Weapons/DBFIR2 DBFIR2
 
+//Fleshrender
+Weapons/XBSel XBSel
+Weapons/XBWR XBWR
+Weapons/XBFir XBFir
+
+//Pulverizer
+Weapons/RLFIR RLFIR
+Weapons/RLREADY RLREADY
+Weapons/RLALTRDY RLALTRDY
+
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK
 Pickups/HEALTH HEALTH
@@ -74,3 +84,4 @@ Pickups/AMPIK AMPIK
 
 //-----MISC Sounds-------
 Misc/EXPLOSION EXP1
+Misc/EXPLOSION2 EXP2

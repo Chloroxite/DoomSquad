@@ -13,3 +13,8 @@ script "healammoregen" (void)
 		GiveInventory("Adrenaline", 1);
 	}
 }
+
+//script "hypermode" (void)
+//{
+	
+//}
