@@ -1,0 +1,48 @@
+#library "DSFuncs"
+#include "zcommon.acs"
+#import "DSDefs.acs"
+
+script "WasIDropped" (void)
+{
+	setResultValue(GetActorProperty(0, APROP_DROPPED));
+}
+
+function int GetClassNumber (void)
+{
+	int classnum = 0;
+	if(CheckInventory("IsAssault"))
+		classnum = 0;
+	if(CheckInventory("IsSharpshooter"))
+		classnum = 1;
+	if(CheckInventory("IsSupport"))
+		classnum = 2;
+	
+	//log(i:classnum);
+	return classnum;
+}
+
+script "ReloadWeapon" (int x, int y, int z)
+{
+	str magType = DS_WEAPONMAGNAMES[x][y];
+	str ammoType = DS_AMMONAMES[z];
+	int magSize = GetAmmoCapacity(magType);
+	int currMag = CheckInventory(magType);
+	int magDiff = magSize - currMag;
+	int currAmmo = CheckInventory(ammoType);
+	int refill;
+	//log(i:magSize);
+	//log(i:currMag);
+	//log(i:currAmmo);
+	//log(b:currAmmo > magSize);
+	//log(b:currAmmo <= magSize);
+	
+	
+	if(currAmmo < magSize)
+		refill = currAmmo;
+	if(currAmmo >= magSize)
+		refill = magSize;
+	//log(i:refill);
+	
+	GiveInventory(magType, refill);
+	TakeInventory(ammoType, magDiff);
+}

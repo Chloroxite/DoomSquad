@@ -1,7 +1,0 @@
-#include DECORATE/PICKUPS/primaryweapon.dec
-#include DECORATE/PICKUPS/primaryupgrade.dec
-#include DECORATE/PICKUPS/secondaryweapon.dec
-#include DECORATE/PICKUPS/secondaryupgrade.dec
-#include DECORATE/PICKUPS/primaryammo.dec
-#include DECORATE/PICKUPS/secondaryammo.dec
-

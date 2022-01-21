@@ -1,0 +1,3 @@
+#include "DECORATE/Classes/Sharpshooter/player.dec"
+#include "DECORATE/Classes/Sharpshooter/slot1.dec"
+#include "DECORATE/Classes/Sharpshooter/slot2.dec"

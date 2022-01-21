@@ -1,0 +1,121 @@
+Actor JHMag : Ammo
+{
+	Inventory.MaxAmount 8
+	+IGNORESKILL
+}
+
+Actor JHEmptyMag : inventory
+{
+	Inventory.MaxAmount 1
+	+IGNORESKILL
+}
+
+Actor Jackhammer : Weapon
+{
+	Obituary "%o was hammered by %k's Jackhammer."
+	Inventory.PickupMessage "You got the Jackhammer automatic shotgun. You SHOULD be getting this from a box."
+	Weapon.SlotNumber 3
+	Weapon.Kickback 100
+	Weapon.AmmoType "Shell"
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 4
+	Weapon.AmmoType2 "JHMag"
+	Weapon.AmmoGive 0
+	Weapon.AmmoUse 0
+	Inventory.RestrictedTo "AssaultPlayer"
+	Tag "Jackhammer"
+	Decal "BulletChip"
+	+AMMO_CHECKBOTH
+	
+	states
+	{
+	Ready:
+		ASGG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		loop
+	Select:
+		ASGP CBA 1 Offset(-30, 30)
+		ASGR CBA 1 Offset(-30, 30)
+		Goto Ready
+	Deselect:
+		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+		
+		ASGR ABC 1
+		ASGP ABC 1
+		TNT1 A 0 A_Lower
+		Wait
+	DeselectDeath:
+		ASGG A 1 A_Lower
+		TNT1 A 0 A_TakeInventory("JHEmptyMag", 1)
+		Stop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("JHMag", 1, 1)
+		Goto Reload
+		
+		TNT1 A 0 A_TakeInventory("JHMag", 1)
+		TNT1 A 0 A_SetPitch(pitch-3)
+		TNT1 A 0 A_Recoil(5)
+		TNT1 A 0 A_ZoomFactor(0.98, ZOOM_NOSCALETURNING)
+		TNT1 A 0 A_PlaySound("Weapons/ASFIR", 1, 0.5)
+		ASGF A 1 Bright A_FireBullets(5, 5, 7, 10, "BulletPuff", FBF_NORANDOM)
+		ASGF B 1 Bright A_ZoomFactor(1)
+		ASGF C 1
+		//ASGF D 1
+		ASGF E 1
+		ASGF F 1
+		ASGG A 8
+		TNT1 A 0 A_ReFire
+		Goto Ready
+	Reload:
+		TNT1 A 0 A_JumpIfInventory("JHMag", 0, "Ready")
+		TNT1 A 0 A_JumpIfInventory("Shell", 1, 1)
+		Goto Ready
+		
+		TNT1 A 0 A_JumpIfInventory("JHMag", 1, 2)
+		TNT1 A 0 A_GiveInventory("JHEmptyMag", 1)
+		
+		ASGR A 1 A_PlaySound("Weapons/SGPICKUP")
+		ASGR B 1
+		ASGR C 1
+		ASGR D 1
+		ASGR E 1
+		ASGR F 1
+		ASGR G 1
+		ASGR H 1
+		ASGR I 1
+		Goto ReloadLoop
+	ReloadLoop:
+		TNT1 A 0 A_JumpIfInventory("JHMag", 0, "ReloadFinish")
+	
+		TNT1 A 0 A_JumpIfInventory("Shell", 1, 1)
+		Goto ReloadFinish
+		
+		ASGR J 2
+		ASGR K 2
+		ASGR L 2 A_PlaySound("Weapons/SGRELOAD")
+		ASGR M 2
+		ASGR N 2
+		TNT1 A 0 A_GiveInventory("JHMag", 1)
+		TNT1 A 0 A_TakeInventory("Shell", 1)
+		Loop
+	ReloadFinish:
+		ASGR I 1
+		ASGR H 1
+		ASGR G 1
+		ASGR F 1
+		ASGR E 1
+		ASGR D 1
+		ASGR C 1
+		ASGR B 1
+		ASGR A 1
+		TNT1 A 0 A_JumpIfInventory("JHEmptyMag", 1, 1)
+		Goto Ready
+		
+		ASGG A 2 A_PlaySound("Weapons/SGPUMP3")
+		ASGG BCDEDCBA 2
+		TNT1 A 0 A_TakeInventory("JHEmptyMag", 1)
+		Goto Ready
+	Reset:
+		TNT1 A 0
+		Goto Ready
+	}
+}

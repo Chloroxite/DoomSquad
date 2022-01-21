@@ -1,0 +1,42 @@
+#library "PickScp.acs"
+#include "zcommon.acs"
+#import "DSDefs.acs"
+#import "DSFuncs.acs"
+
+script "DS_GiveWeapons" (int wep, int dropped)
+{
+	int class = GetClassNumber();
+	//Log(i:class);
+	bool hasWeapon = CheckInventory(DS_WEAPONNAMES[class][wep-1]);
+	int success = 0;
+	int weaponstay = !!GetCVar("sv_weaponstay");
+	bool AmmoFull = ((CheckInventory(DS_AMMONAMES[wep-1])) == (GetAmmoCapacity(DS_AMMONAMES[wep-1])));
+	//log(b:AmmoFull);
+	//log(b:hasWeapon);
+	if((!hasWeapon && !GetCVar("sv_weaponstay")) || (!hasWeapon && dropped == 1))
+	{
+		success = 1;
+		ACS_ExecuteAlways(500, 0, class, wep-1);
+		GiveInventory(DS_WEAPONNAMES[class][wep-1], 1);
+	}
+	else if((!hasWeapon && GetCVar("sv_weaponstay")))
+	{
+		ACS_ExecuteAlways(500, 0, class, wep-1);
+		GiveInventory(DS_WEAPONNAMES[class][wep-1], 1);
+	}
+	else if((!AmmoFull && DS_AMMONAMES[wep-1] != "SMGHealerAmmo") && ((dropped == 0 && weaponstay == 0) || dropped == 1))
+	{
+		success = 1;
+		ACS_ExecuteAlways(500, 0, class, wep-1);
+		GiveInventory(DS_AMMONAMES[wep-1], DS_AMMOCOUNTS[class][wep-1]);
+	}
+	SetResultValue((success * 1) + (weaponstay * 2));
+}
+
+script 500 (int class, int slot) clientside
+{
+	if(PlayerNumber() != ConsolePlayerNumber()) 
+		terminate;
+	Log(s:logcolors[GetCVar("msg0color")], s:DS_WEAPONPCKMSGS[class][slot]);
+	ActivatorSound("Pickups/WPICK", 127);
+}

@@ -1,0 +1,7 @@
+#include DECORATE/PICKUPS/slot1.dec
+#include DECORATE/PICKUPS/slot2.dec
+#include DECORATE/PICKUPS/slot3.dec
+#include DECORATE/PICKUPS/slot4.dec
+#include DECORATE/PICKUPS/primaryammo.dec
+#include DECORATE/PICKUPS/secondaryammo.dec
+

@@ -1,0 +1,9 @@
+#include "zcommon.acs"
+script "global_setup" enter
+{
+	
+}
+//script "hypermode" (void)
+//{
+	
+//}

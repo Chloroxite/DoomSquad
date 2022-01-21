@@ -1,0 +1,61 @@
+#library "DSDefs"
+
+str DS_WEAPONNAMES[5][4] =
+{
+	{"Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer"},//Assault
+	{"Rhino", "BXR", "FleshRender", "PlasMaster"},//Sharpshooter
+	{"SG12", "Badger", "Blockbuster", "Nailgun"}//Support
+};
+
+str DS_AMMONAMES[4]=
+{
+	"Shell", 
+	"Clip", 
+	"RocketAmmo", 
+	"Cells"
+};
+
+str DS_WEAPONMAGNAMES[5][4] =
+{
+	{"JHMag", "UACMag", "nomag", "nomag"},
+	{"RhinoMag", "BXRMag", "nomag", "PMMag"},
+	{"SGMag", "SMGMag", "nomag", "nomag"}
+};
+
+int DS_AMMOCOUNTS[5][4] =
+{
+	{2, 10, 1, 4},
+	{2, 10, 1, 4},
+	{2, 10, 1, 4}
+};
+
+str DS_WEAPONPCKMSGS[5][4] =
+{
+	//Assault
+	{
+		"You got the Jackhammer Automatic Shotgun. Close range mowin'! (Slot 1)", 
+		"You got the UAC4A assault rifle. Tacticool! (Slot 2)", 
+		"You got the Blockbuster. It's quite literal! (Slot 3)",
+		"You got the Flamenwurfer. Pretty sure that's not spelled right... (Slot 4)"
+	},
+	//Sharpshooter
+	{
+		"You got the Rhino. Fuck some shit up. (Slot 1)", 
+		"You got the MBR12 Battle Rifle. Long range mowin'! (Slot 2)", 
+		"You got the Fleshrender Crossbow. Do some explodin'. (Slot 3)", 
+		"You got the PlasMaster Railgun. Snipin's a good job. (Slot 4)"
+	},
+	//Support
+	{
+		"You've picked up the SG12 Shotgun. Ole' Reliable. (Slot 1)", 
+		"You got the Badger Submachine Gun. Spray and pray! (Slot 2)",
+		"You've picked up the Pulverizer Rocket Launcher. Turn 'em to gibs! (Slot 3)",
+		"You got the Nailgun. Something something crucifixion. (Slot 4)"
+	}
+};
+
+str logcolors[22] = 
+{
+    "\ca", "\cb", "\cc", "\cd", "\ce", "\cf", "\cg", "\ch", "\ci", "\cj", "\ck",
+    "\cl", "\cm", "\cn", "\co", "\cp", "\cq", "\cr", "\cs", "\ct", "\cu", "\cv"
+};
