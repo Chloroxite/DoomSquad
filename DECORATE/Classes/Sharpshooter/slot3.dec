@@ -1,0 +1,105 @@
+Actor FRBolt
+{
+	Damage 2
+    Radius 2
+    Height 2
+    Speed 100
+    Projectile 
+    Obituary "%o was shredded by %k's Jackhammer Sweeper rounds."
+    Renderstyle "Normal"
+    Species "Player"
+    Scale 0.5
+	Decal "BulletChip"
+	Gravity 0.25
+    +FORCERADIUSDMG
+	+BLOODSPLATTER
+    +THRUSPECIES
+	-NOGRAVITY
+	states
+	{
+	Spawn:
+		SPBT A 1 bright
+		Loop
+	Death:
+		TNT1 A 0 A_PlaySound("Misc/EXPLOSION")
+		MISL B 4 bright A_Explode(200, 100)
+		MISL C 3 bright
+		MISL D 2 bright
+		Stop
+	}
+}
+
+
+Actor FleshRender : Weapon
+{
+	Obituary "%o was pierced and 'sploded by %k's Fleshrender."
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "RocketAmmo"
+	Weapon.SlotNumber 5
+	Decal BulletChip
+	Tag "Fleshrender"
+	Inventory.RestrictedTo "SharpshooterPlayer"
+	Inventory.PickupMessage "Hol up."
+	+AMMO_CHECKBOTH
+	+NOAUTOFIRE
+	
+	states
+	{
+	Select:
+		XBWS A 1 Offset(48, 76) A_PlaySound("Weapons/XBSel")
+		XBWS A 1 Offset(32, 56)
+		XBWS A 1 Offset(16, 36)
+		XBWS A 1 Offset(5, 35)
+		XBWS A 1 Offset(4, 33)
+		Goto ReadySprite
+	ReadySprite:
+		XBWS A 2
+		XBWS B 4
+		XBWS C 6
+		Goto Ready
+	Deselect:
+		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+		
+		XBWS A 1 Offset(4, 33)
+		XBWS A 1 Offset(5, 35)
+		XBWS A 1 Offset(16, 36)
+		XBWS A 1 Offset(32, 56)
+		XBWS A 1 Offset(48, 76)
+		XBWS A 0 A_Lower
+		Wait
+	DeselectDeath:
+		XBWS C 1 A_Lower
+		Wait
+	Ready: 
+		XBWS C 1 A_WeaponReady
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+		Goto Ready
+		
+		XBWS D 1 A_FireCustomMissile("FRBolt", 0, 0, -2)
+		TNT1 A 0 A_PlaySound("Weapons/XBFir", 1)
+		TNT1 A 0 A_TakeInventory("FRAmmo", 1)
+		XBWS D 1 Offset(0, 35)
+		XBWS D 1 Offset(0, 32)
+		XBWS D 15 
+		XBWS D 2 Offset(-2, 30)
+		XBWS D 2 Offset(-4, 32)
+		XBWR A 2 Offset(4, 28)
+		XBWR A 2 Offset(2, 30)
+		XBWR A 2
+		XBWR B 2
+		XBWR C 2
+		XBWR D 2
+		XBWR E 2
+		XBWR F 2
+		XBWR G 2 A_PlaySound("Weapons/XBWR")
+		XBWR H 2 
+		XBWR H 2 Offset(2, 30)
+		XBWR H 2 Offset(4, 28)
+		XBWS A 2 Offset(-4, 32)
+		XBWS A 2 Offset(-2, 30)
+		Goto ReadySprite
+	}
+}

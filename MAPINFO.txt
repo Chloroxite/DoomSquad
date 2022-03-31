@@ -1,7 +1,4 @@
 gameinfo
 {
 	PlayerClasses = "AssaultPlayer", "SupportPlayer", "SharpshooterPlayer"
-	WeaponSlot = 2, "Hornet"
-	WeaponSlot = 3, "Jackhammer", "SG12", "Rhino"
-	WeaponSlot = 4, "UAC4A", "Badger", "BXR"
 }

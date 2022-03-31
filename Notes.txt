@@ -4,3 +4,7 @@ but just know that much like my bedroom, it's going to look messy as fuck in her
 first mod after all, so cut me some slack, ay?
 
 Oh, and if you use any of the sprites or sounds used here, make sure you credit the appropriate person. See "sources.txt"
+
+TODO:
+
+Compress assault rifle sprites in an attempt to fix lag.

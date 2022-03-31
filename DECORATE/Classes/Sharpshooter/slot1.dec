@@ -82,12 +82,14 @@ Actor Rhino : Weapon
 		
 		TNT1 A 0 A_TakeInventory("RhinoMag", 1)
 		TNT1 A 0 A_PlaySound("Weapons/RHINOFIR", 1, .5)
+		TNT1 A 0 A_ZoomFactor(0.92,ZOOM_NOSCALETURNING)
 		RHNF B 1 bright A_FireBullets(5, 5, 6, 25, "AlwaysgibPuff", FBF_NORANDOM)
+		TNT1 AAAAAA 0 A_FireCustomMissile("BulletTrail", FRANDOM(-2.5, 2.5), 0, 0, 0, 0, FRANDOM(-2.5, 2.5))
 		TNT1 A 0 A_Recoil(5)
 		TNT1 A 0 A_SetPitch(pitch-10)
-		RHNF C 2 bright
-		RHNF C 2 bright Offset(0, 2)
-		RHNF C 2 bright Offset(0, -1)
+		RHNF C 2 bright A_ZoomFactor(0.98)
+		RHNF C 2 bright Offset(0, 2) A_ZoomFactor(0.99)
+		RHNF C 2 bright Offset(0, -1) A_ZoomFactor(1.0)
 		RHNF D 2
 		RHNF D 2 Offset(0, -1)
 		RHNF D 2 Offset(0, 10)

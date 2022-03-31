@@ -1,4 +1,4 @@
-actor BulletTrail
+actor BulletTrail : FastProjectile
 {
 	Damage 0
     Radius 1
@@ -12,13 +12,66 @@ actor BulletTrail
     +FORCERADIUSDMG
 	+BLOODSPLATTER
     +THRUSPECIES
+	+CLIENTSIDEONLY
 	states
 	{
 	Spawn:
-		TRAI A 1 bright
+		TRAY A 1 bright
 		Loop
 	Death:
 		TNT1 A 0
+		Stop
+	}
+}
+
+Actor SpentShell
+{
+	Radius 3
+	Scale 0.18
+	+MISSILE
+	+CLIENTSIDEONLY
+	+NOTELEPORT	
+	+DOOMBOUNCE
+	+THRUACTORS
+	+DROPOFF
+	BounceFactor 0.5
+	WallBounceFactor 0.25
+	BounceCount 3
+	Seesound "Misc/DSSHELL3"
+	states
+	{
+	Spawn:
+		SHLL ABCDEFGH 2
+		loop
+	Death:
+		SHLL C 512
+		SHLL C 8 A_FadeOut(0.1)
+		Stop
+	}
+}
+
+Actor SpentBullet
+{
+	Radius 3
+	Scale 0.18
+	+MISSILE
+	+CLIENTSIDEONLY
+	+NOTELEPORT	
+	+DOOMBOUNCE
+	+THRUACTORS
+	+DROPOFF
+	BounceFactor 0.5
+	WallBounceFactor 0.25
+	BounceCount 3
+	Seesound "Misc/DSSHELL3"
+	states
+	{
+	Spawn:
+		SHLL ABCDEFGH 2
+		loop
+	Death:
+		SHLL C 512
+		SHLL C 8 A_FadeOut(0.1)
 		Stop
 	}
 }

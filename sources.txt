@@ -19,6 +19,11 @@
 *Small Health sound from UT99
 *Vaporizer Firing sound - Killing Floor IJC Weapon Pack
 *Rocket Launcher Sounds - A mix of Brutal Doom, Complex Doom, and Killing Floor
+*Lever Action Rifle sprite - Pulled from a Fallout model by primnull (Found on DeviantArt)
+*Lever Action Rifle sounds - KF1
+*Smoke effects - Taken from Mace's mod, Atom Rain. (Thanks bud!)
+*Script for bullet case ejection barrowed from Complex Doom.
+*Shell bounce sound borrowed from Complex Doom.
 
 If you see anything in here that's yours and it's not listed, please just let me know.
 I'd be happy to sort things out.

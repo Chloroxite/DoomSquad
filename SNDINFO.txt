@@ -5,8 +5,6 @@ Weapons/HORNPIK HORNPIK
 Weapons/HORNCLP HORNCLP
 Weapons/HORNCLP2 HORNCLP2
 
-//-----PRIMARY SLOT------
-
 //Shotgun
 Weapons/SGFIR SGFIR
 Weapons/SGFIR2 SGFIR2
@@ -52,8 +50,6 @@ Weapons/LRDMRR3 LRDMRR3
 Weapons/LRDMRR2 LRDMRR2
 Weapons/LRDMRR1 LRDMRR1
 
-//-----------SECONDARY SLOT------------
-
 //Jackhammer
 Weapons/ASFIR ASFIR
 Weapons/ASR1 ASR1
@@ -79,6 +75,12 @@ Weapons/RLFIR RLFIR
 Weapons/RLREADY RLREADY
 Weapons/RLALTRDY RLALTRDY
 
+//Rifle (Will probably have a name later)
+Weapons/RIFRL1 RIFRL1
+Weapons/RIFRL2 RIFRL2
+Weapons/RIFFIR RIFFIR
+Weapons/RIFRL3 RIFRL3
+
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK
 Pickups/HEALTH HEALTH
@@ -88,3 +90,4 @@ Pickups/AMPIK AMPIK
 //-----MISC Sounds-------
 Misc/EXPLOSION EXP1
 Misc/EXPLOSION2 EXP2
+Misc/DSSHELL3 DSSHELL3

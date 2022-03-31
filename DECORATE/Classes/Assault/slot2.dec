@@ -61,9 +61,10 @@ Actor UAC4A : Weapon
 		UAC4 A 0 A_JumpIfInventory("UACMag", 1, 1)
 		Goto Reload
 		
-		UAC4 A 0
+		UAC4 A 0 
 		UAC4 A 1 bright A_FireBullets(2,2,1,18,"BulletPuff", FBF_NORANDOM)
 		UAC4 A 0 A_SetPitch(pitch-.8)
+		UAC4 A 0 A_FireCustomMissile("BulletTrail", FRANDOM(-1, 1), 0, 0, 0, 0, FRANDOM(-1, 1))
 		//randomize visual recoil
 		TNT1 A 0 A_Jump(85, "FireRecoil1")
 		TNT1 A 0 A_Jump(85, "FireRecoil2")
@@ -96,20 +97,9 @@ Actor UAC4A : Weapon
 		TNT1 A 0 A_GiveInventory("UACEmptyMag", 1)
 		
 		UACR A 1
-		UACE A 1
-		UACE B 1
-		UACE C 1
-		UACE D 1
+		UACE ABCD 1
 		UACR B 3
-		UACR C 2
-		UACR D 2
-		UACR E 2
-		UACR F 2
-		UACR G 2
-		UACR H 2
-		UACR I 2
-		UACR J 2
-		UACR K 2
+		UACR CDEFGHIJK 2
 		UACR L 2 A_PlaySound("Weapons/M4A1R1", 1)
 		UACR M 2
 		UACR N 2

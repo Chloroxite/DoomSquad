@@ -33,14 +33,14 @@ Actor Jackhammer : Weapon
 		ASGG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 		loop
 	Select:
-		ASGP CBA 1 Offset(-30, 30)
-		ASGR CBA 1 Offset(-30, 30)
+		ASGE C 1 Offset(1, 30) A_PlaySound("Weapons/SGPUMP3", 1)
+		ASGE BA 1
 		Goto Ready
 	Deselect:
 		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
 		
-		ASGR ABC 1
-		ASGP ABC 1
+		ASGG A 1
+		ASGE ABC 1
 		TNT1 A 0 A_Lower
 		Wait
 	DeselectDeath:
@@ -56,7 +56,9 @@ Actor Jackhammer : Weapon
 		TNT1 A 0 A_Recoil(5)
 		TNT1 A 0 A_ZoomFactor(0.98, ZOOM_NOSCALETURNING)
 		TNT1 A 0 A_PlaySound("Weapons/ASFIR", 1, 0.5)
+		TNT1 AAAAAAA 0 A_FireCustomMissile("BulletTrail", FRANDOM(-2.5, 2.5), 0, 0, 0, 0, FRANDOM(-2.5, 2.5))
 		ASGF A 1 Bright A_FireBullets(5, 5, 7, 10, "BulletPuff", FBF_NORANDOM)
+		TNT1 A 0 A_SpawnItemEx("SpentShell",Cos(Pitch)*30,-2,25-(Sin(Pitch)*25),Cos(Pitch)*FRandom(2,4),FRandom(3,6),-Sin(Pitch)*FRandom(3,6),0,SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH)
 		ASGF B 1 Bright A_ZoomFactor(1)
 		ASGF C 1
 		//ASGF D 1
