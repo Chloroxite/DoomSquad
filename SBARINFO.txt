@@ -1,0 +1,15 @@
+resolution 640, 400;
+interpolateHealth true, 6;
+interpolateArmor true, 6;
+
+Statusbar FullScreen, forcescaled
+{
+	//Health and Armor
+	DrawBar "HBARA0", "HBBGA0", Health, Horizontal, -15, 326;
+	DrawBar "ABARA0", "HBBGA0", Armor, Horizontal, 5, 351;
+	DrawBar "ABARA0", "HBBGB0", Armor, Horizontal, 5, 351;
+	DrawImage "HHUDA0", -100, 250;
+	DrawNumber 3, SMALLFONT, Red, Health, 100, 330;
+	DrawNumber 3, SMALLFONT, Green, Armor, 125, 355;
+	DrawMugShot 9, -100, 350;
+}

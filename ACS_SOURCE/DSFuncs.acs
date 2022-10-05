@@ -10,11 +10,11 @@ script "WasIDropped" (void)
 function int GetClassNumber (void)
 {
 	int classnum = 0;
-	if(CheckInventory("IsAssault"))
+	if(CheckInventory("IsFirebug"))
 		classnum = 0;
 	if(CheckInventory("IsSharpshooter"))
 		classnum = 1;
-	if(CheckInventory("IsSupport"))
+	if(CheckInventory("IsCommando"))
 		classnum = 2;
 	
 	//log(i:classnum);

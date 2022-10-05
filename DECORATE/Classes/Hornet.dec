@@ -7,7 +7,7 @@ actor HornetMag : Ammo
 actor Hornet : Weapon replaces Pistol
 {
 	Obituary "%o was stung by %k's Hornet."
-	Inventory.PickupMessage "You got the Hornet Pistol! HOW??"
+	Inventory.PickupMessage "There is literally no way this message should show up."
 	Weapon.SlotNumber 2
 	Weapon.Kickback 100
 	Weapon.AmmoType "HornetMag"

@@ -15,14 +15,18 @@ Weapons/SGRELOAD SGRELOAD
 Weapons/SGPUMP3 SGPUMP3
 
 //SMG
-Weapons/SMGFIR SMGFIR
+$random Weapons/RSMGF { Weapons/SMGFIR1 Weapons/SMGFIR2 Weapons/SMGFIR3 }
+
+Weapons/SMGFIR1 SMGFIR1
+Weapons/SMGFIR2 SMGFIR2
+Weapons/SMGFIR3 SMGFIR3
+
 Weapons/SMGR1 SMGR1
 Weapons/SMGR2 SMGR2
+Weapons/SMGR3 SMGR3
 Weapons/SMGPK SMGPK
-Weapons/SMGHL SMGHL
-Weapons/SMGHLIM SMGHLIM
 
-//Assault Rifle
+//Assault Rifle (currently unused, rip assault)
 Weapons/M4A1FIR M4A1FIR
 Weapons/M4A1R1 M4A1R1
 Weapons/M4A1R2 M4A1R2

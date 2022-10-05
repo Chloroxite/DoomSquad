@@ -1,4 +1,4 @@
 gameinfo
 {
-	PlayerClasses = "AssaultPlayer", "SupportPlayer", "SharpshooterPlayer"
+	PlayerClasses = "CommandoPlayer", "SharpshooterPlayer"
 }

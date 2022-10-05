@@ -1,29 +1,27 @@
-
-*Assault Rifle - Resident Evil 6 (Ripped by Adngel from DeviantArt)
 *Pistol Sound - Killing Floor IJC Weapon Pack
 *A bunch of other weapon sounds - Killing Floor
 *Shotgun pumping sound - L4D2
-*Shotgun and Rocket Launcher sprites - TypicalSonicFan
+*Shotgun model - ProgrammerNetwork
 *Weapon and Ammo Crate sprites - Ac!d (Edited by me)
-*MP5K Sprites - aeea7835(On Deviantart)
+*P90 Model - ProgrammerNetwork (Found on DeviantArt)
 *Explosion sound - 3P Sound Pack Vanilla Edition
 *Auto Shotgun sprite - Sprite created by me, model by AbyssLeo (Found on DeviantArt)
 *Auto shotgun firing sound - L4D2
 *Title Card - Demiero (Fellow member of Voidsoft)
 *Rhino Revolver - ProgrammerNetwork (Rigged from Fallout Mod, found on DeviantArt)
-*Assault Rifle Sound - Insurgency
 *Hand Sprites were pulled from a large spritesheet compiled by WildWeasel and MartyKirra
 *Figured out how to handle weapon pickups from Wrath of Chronos (Made by Thetis), and from Samsara (Made by TerminusEst)
 *Ammo pickup sound from UT99
 *Respawn sound from UT99
 *Small Health sound from UT99
-*Vaporizer Firing sound - Killing Floor IJC Weapon Pack
-*Rocket Launcher Sounds - A mix of Brutal Doom, Complex Doom, and Killing Floor
 *Lever Action Rifle sprite - Pulled from a Fallout model by primnull (Found on DeviantArt)
 *Lever Action Rifle sounds - KF1
 *Smoke effects - Taken from Mace's mod, Atom Rain. (Thanks bud!)
 *Script for bullet case ejection barrowed from Complex Doom.
 *Shell bounce sound borrowed from Complex Doom.
+*Explosion effect - I uh... have no clue who made this, it didn't have any credits attatched to it. Here's a link instead:
+https://www.seekpng.com/ipng/u2q8t4i1o0t4a9u2_drawn-explosions-sprite-explosion-sprite-sheet-doom/
+*
 
-If you see anything in here that's yours and it's not listed, please just let me know.
+If you see anything in here that's yours and it's not listed, or you don't want it in here, please just let me know.
 I'd be happy to sort things out.

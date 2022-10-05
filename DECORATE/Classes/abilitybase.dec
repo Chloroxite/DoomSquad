@@ -1,0 +1,5 @@
+Actor AbEnergy : Ammo
+{
+	+IGNORESKILL
+	Inventory.MaxAmount 100
+}

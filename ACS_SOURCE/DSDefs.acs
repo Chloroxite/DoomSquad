@@ -2,9 +2,9 @@
 
 str DS_WEAPONNAMES[5][4] =
 {
-	{"Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer"},//Assault
+	{"Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer"},//Firebug, placeholder
 	{"Rhino", "BXR", "FleshRender", "PlasMaster"},//Sharpshooter
-	{"SG12", "Badger", "Blockbuster", "Nailgun"}//Support
+	{"SG12", "Badger", "Blockbuster", "Nailgun"}//Commando
 };
 
 str DS_AMMONAMES[4]=
@@ -31,7 +31,7 @@ int DS_AMMOCOUNTS[5][4] =
 
 str DS_WEAPONPCKMSGS[5][4] =
 {
-	//Assault
+	//Firebug (these are placeholder, and are holdovers from the assault class)
 	{
 		"You got the Jackhammer Automatic Shotgun. Close range mowin'! (Slot 1)", 
 		"You got the UAC4A assault rifle. Tacticool! (Slot 2)", 
@@ -45,7 +45,7 @@ str DS_WEAPONPCKMSGS[5][4] =
 		"You got the Fleshrender Crossbow. Do some explodin'. (Slot 3)", 
 		"You got the PlasMaster Railgun. Snipin's a good job. (Slot 4)"
 	},
-	//Support
+	//Commando
 	{
 		"You've picked up the SG12 Shotgun. Ole' Reliable. (Slot 1)", 
 		"You got the Badger Submachine Gun. Spray and pray! (Slot 2)",

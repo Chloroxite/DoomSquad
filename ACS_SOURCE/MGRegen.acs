@@ -3,7 +3,7 @@ script "global_setup" enter
 {
 	
 }
-//script "hypermode" (void)
+//script 301 (void) //hypermode
 //{
 	
 //}

@@ -1,0 +1,11 @@
+addkeysection "Doom Squad" doomsquad
+
+addmenukey "Activate abilty" ability
+alias ability "puke 300"
+defaultbind F ability
+
+addmenukey "Activate hypermode" hypermode
+alias hypermode "puke 301"
+defaultbind Q hypermode
+
+

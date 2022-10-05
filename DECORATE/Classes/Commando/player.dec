@@ -1,0 +1,11 @@
+actor IsCommando : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+actor CommandoPlayer : DoomPlayer
+{
+	Player.DisplayName "Commando"
+	Player.StartItem "Hornet", 1
+	Player.StartItem "IsCommando", 1
+}

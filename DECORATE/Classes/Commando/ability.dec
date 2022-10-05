@@ -1,0 +1,10 @@
+Actor comAbility : Weapon
+{
+	Obituary "%o somehow triggered the wrong message."
+	Weapon.AmmoUse 0
+	Weapon.AmmoGive 1
+	Weapon.AmmoType "AbEnergy"
+	Decal BulletChip
+	Tag "I'm 99% sure this shouldn't show up."
+	Inventory.RestrictedTo "CommandoPlayer"
+}

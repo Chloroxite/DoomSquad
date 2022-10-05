@@ -1,0 +1,5 @@
+#include DECORATE/Classes/Commando/player.dec
+#include DECORATE/Classes/Commando/slot1.dec
+#include DECORATE/Classes/Commando/slot2.dec
+#include DECORATE/Classes/Commando/slot3.dec
+#include DECORATE/Classes/Commando/ability.dec
