@@ -75,3 +75,29 @@ Actor SpentBullet
 		Stop
 	}
 }
+
+Actor Smonk
+{
+	Speed 1
+	Scale 0.2
+	Alpha 0.35
+	Renderstyle Add
+	+CLIENTSIDEONLY
+	+NOTELEPORT
+	+THRUACTORS
+	+NOGRAVITY
+	-NOCLIP
+	+NOINTERACTION
+	+DONTSPLASH
+	states
+	{
+		Spawn:
+		TNT1 A 2
+		Smonk:
+		SMK1 A 1
+		SMK1 B 2 
+		SMK1 C 3 
+		SMK1 D 1 A_Fadeout(0.2) 
+		Wait
+	}
+}

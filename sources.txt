@@ -1,10 +1,11 @@
-*Pistol Sound - Killing Floor IJC Weapon Pack
-*A bunch of other weapon sounds - Killing Floor
+*FiveSeven firing Sound - Killing Floor IJC Weapon Pack
+*FiveSeven Reload sounds - Killing Floor
 *Shotgun pumping sound - L4D2
 *Shotgun model - ProgrammerNetwork
 *Weapon and Ammo Crate sprites - Ac!d (Edited by me)
 *P90 Model - ProgrammerNetwork (Found on DeviantArt)
-*Explosion sound - 3P Sound Pack Vanilla Edition
+*P90 Sounds - CS-GO, except for firing sound which was custom.
+*Rocket Luancher sounds (including explosions) - Killing Floor
 *Auto Shotgun sprite - Sprite created by me, model by AbyssLeo (Found on DeviantArt)
 *Auto shotgun firing sound - L4D2
 *Title Card - Demiero (Fellow member of Voidsoft)
@@ -17,11 +18,12 @@
 *Lever Action Rifle sprite - Pulled from a Fallout model by primnull (Found on DeviantArt)
 *Lever Action Rifle sounds - KF1
 *Smoke effects - Taken from Mace's mod, Atom Rain. (Thanks bud!)
-*Script for bullet case ejection barrowed from Complex Doom.
+*Script for bullet case ejection barrowed from Complex Doom. (I'm really bad at math)
 *Shell bounce sound borrowed from Complex Doom.
 *Explosion effect - I uh... have no clue who made this, it didn't have any credits attatched to it. Here's a link instead:
 https://www.seekpng.com/ipng/u2q8t4i1o0t4a9u2_drawn-explosions-sprite-explosion-sprite-sheet-doom/
-*
+*Jenocide Font - Jimmy
+*FiveSeven model by ProgrammerNetwork
+*Rocketlauncher model - Adngel (found on deviantart)
 
 If you see anything in here that's yours and it's not listed, or you don't want it in here, please just let me know.
-I'd be happy to sort things out.

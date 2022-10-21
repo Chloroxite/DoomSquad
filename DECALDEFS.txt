@@ -1,0 +1,20 @@
+Decal BURNMK 1
+{
+	pic BURNMK
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+ 
+Decal BRIGHTMK 2
+{
+	pic BRIGHTMK
+	x-scale 0.20
+	y-scale 0.20
+	randomflipx
+	randomflipy
+	Animator GoAway
+	lowerdecal BURNMK
+	fullbright
+}

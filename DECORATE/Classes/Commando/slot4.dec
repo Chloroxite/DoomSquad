@@ -1,0 +1,83 @@
+Actor RPGRocket
+{
+  Radius 11
+  Height 8
+  Speed 80
+  Damage 30
+  Projectile
+  DeathSound "Misc/EXPLOSION2"
+  Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
+  States
+  {
+  Spawn:
+    ROCK A 1 Bright
+    Loop
+  Death:
+	EXP1 A 1 Bright A_Explode(140, 200)
+	EXP1 A 0 A_PlaySound("Weapons/RLDIST", 0, 1, 0, ATTN_NONE)
+	EXP1 BCDEFGHIJKLMNOPQRSTUVW 1 Bright
+    Stop
+  }
+}
+
+Actor RPG : Weapon
+{
+	Obituary "%k made a mess out of %o using an RPG."
+	Weapon.AmmoType "RocketAmmo"
+	Weapon.SlotNumber 4
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobSpeed 2
+	Tag "RPG"
+	Inventory.RestrictedTo "CommandoPlayer"
+	Inventory.PickupMessage "I don't know how this got on the floor..."
+	
+	States
+	{
+		Select:
+			TNT1 A 0 Offset(1, 20)
+			RPGR O 1 A_PlaySound("Weapons/RLREADY", 1)
+			RPGR PQ 1
+			Goto Ready
+		Deselect:
+			TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+			
+			RPGR QPO 1
+			TNT1 A 0 A_Lower
+			Wait
+		DeselectDeath:
+			RPGS A 1 A_Lower
+			Wait
+		Ready:
+			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+			Goto ReadyEmpty
+			
+			RPGS A 1 A_WeaponReady
+			Loop
+		ReadyEmpty:
+			RPGF I 1 A_WeaponReady
+			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+			Loop
+			
+			TNT1 A 0
+			Goto Fire+13
+		Fire:
+			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+			Goto Ready
+			
+			RPGF A 1 Bright A_PlaySound("Weapons/RLFIR")
+			RPGF A 0 A_FireCustomMissile("RPGRocket", 0, 0, 0, 0, 0, 0)
+			TNT1 A 0 A_TakeInventory("RocketAmmo", 1)
+			TNT1 A 0 A_ZoomFactor(0.90, ZOOM_NOSCALETURNING)
+			TNT1 A 0 A_SetPitch(pitch-3)
+			RPGF B 2 Bright A_ZoomFactor(0.98)
+			RPGF C 2 A_ZoomFactor(1)
+			RPGF DEFGHI 2
+			RPGF JKLM 2
+			RPGR ABC 2
+			RPGR D 2 A_PlaySound("Weapons/RLR1", 1)
+			RPGR EF 2
+			RPGR G 2 A_PlaySound("Weapons/RLR2", 1)
+			RPGR HIJKLMNOPQ 2
+			Goto Ready
+	}
+}

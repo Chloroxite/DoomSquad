@@ -1,9 +1,11 @@
-//Pistol
+//Hornet
 Weapons/HORNFIR HORNFIR
 Weapons/HORNRC HORNRC
 Weapons/HORNPIK HORNPIK
-Weapons/HORNCLP HORNCLP
-Weapons/HORNCLP2 HORNCLP2
+Weapons/HORNR1 HORNR1
+Weapons/HORNR2 HORNR2
+Weapons/HORNR3 HORNR3
+Weapons/HORNR4 HORNR4
 
 //Shotgun
 Weapons/SGFIR SGFIR
@@ -15,12 +17,8 @@ Weapons/SGRELOAD SGRELOAD
 Weapons/SGPUMP3 SGPUMP3
 
 //SMG
-$random Weapons/RSMGF { Weapons/SMGFIR1 Weapons/SMGFIR2 Weapons/SMGFIR3 }
 
 Weapons/SMGFIR1 SMGFIR1
-Weapons/SMGFIR2 SMGFIR2
-Weapons/SMGFIR3 SMGFIR3
-
 Weapons/SMGR1 SMGR1
 Weapons/SMGR2 SMGR2
 Weapons/SMGR3 SMGR3
@@ -74,22 +72,27 @@ Weapons/XBSel XBSel
 Weapons/XBWR XBWR
 Weapons/XBFir XBFir
 
-//Pulverizer
+//Rocket Launcher
 Weapons/RLFIR RLFIR
 Weapons/RLREADY RLREADY
-Weapons/RLALTRDY RLALTRDY
+Weapons/RLR1 RLR1
+Weapons/RLR2 RLR2
+Weapons/RLDIST RLDIST
 
-//Rifle (Will probably have a name later)
-Weapons/RIFRL1 RIFRL1
-Weapons/RIFRL2 RIFRL2
-Weapons/RIFFIR RIFFIR
-Weapons/RIFRL3 RIFRL3
+
+//Megawave
+Weapons/FOCUSSTR FOCUSSTR
+Weapons/FOCUSEND FOCUSEND
+Weapons/FOCUSLP FOCUSLP
+Weapons/FOCUSOH FOCUSOH
+Weapons/FOCUSPK FOCUSPK
 
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK
 Pickups/HEALTH HEALTH
 Pickups/HEALTHSML HEALTHSML
 Pickups/AMPIK AMPIK
+Pickups/RADSUIT RADSUIT
 
 //-----MISC Sounds-------
 Misc/EXPLOSION EXP1

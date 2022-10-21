@@ -28,21 +28,26 @@ script "ReloadWeapon" (int x, int y, int z)
 	int magSize = GetAmmoCapacity(magType);
 	int currMag = CheckInventory(magType);
 	int magDiff = magSize - currMag;
-	int currAmmo = CheckInventory(ammoType);
-	int refill;
-	//log(i:magSize);
-	//log(i:currMag);
-	//log(i:currAmmo);
-	//log(b:currAmmo > magSize);
-	//log(b:currAmmo <= magSize);
-	
-	
-	if(currAmmo < magSize)
-		refill = currAmmo;
-	if(currAmmo >= magSize)
-		refill = magSize;
-	//log(i:refill);
-	
-	GiveInventory(magType, refill);
-	TakeInventory(ammoType, magDiff);
+	if(ammoType != "nomag")
+	{
+		//log(s:"!nomag");
+		int currAmmo = CheckInventory(ammoType);
+		int refill;
+		//log(i:magSize);
+		//log(i:currMag);
+		//log(i:currAmmo);
+		//log(b:currAmmo > magSize);
+		//log(b:currAmmo <= magSize);
+		
+		
+		if(currAmmo < magSize)
+			refill = currAmmo;
+		if(currAmmo >= magSize)
+			refill = magSize;
+		//log(i:refill);
+		TakeInventory(ammoType, magDiff);
+		GiveInventory(magType, refill);
+	}
+	else
+		GiveInventory(magType, magSize);
 }

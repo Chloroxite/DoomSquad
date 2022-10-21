@@ -1,6 +1,5 @@
 #include DECORATE/Classes/Commando/commando.dec
 #include DECORATE/Classes/Sharpshooter/sharpshooter.dec
-#include DECORATE/Classes/Hornet.dec
 #include DECORATE/PICKUPS/pickups.dec
 #include DECORATE/EFFECTS/effects.dec
 #include DECORATE/Classes/abilitybase.dec

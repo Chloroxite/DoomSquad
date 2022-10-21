@@ -1,0 +1,4 @@
+Actor customradsuit : RadSuit replaces RadSuit
+{
+	Inventory.PickupSound "Pickups/RADSUIT"
+}

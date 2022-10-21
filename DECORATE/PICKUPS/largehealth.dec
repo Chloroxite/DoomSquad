@@ -1,0 +1,4 @@
+Actor cmedkit : medikit replaces medikit
+{
+	Inventory.PickupSound "Pickups/HEALTH"
+}

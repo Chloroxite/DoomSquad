@@ -4,4 +4,6 @@
 #include DECORATE/PICKUPS/slot4.dec
 #include DECORATE/PICKUPS/primaryammo.dec
 #include DECORATE/PICKUPS/secondaryammo.dec
+#include DECORATE/Pickups/radsuit.dec
+#include DECORATE/Pickups/largehealth.dec
 

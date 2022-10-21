@@ -1,32 +1,33 @@
 #library "DSDefs"
 
-str DS_WEAPONNAMES[5][4] =
+str DS_WEAPONNAMES[5][5] =
 {
-	{"Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer"},//Firebug, placeholder
-	{"Rhino", "BXR", "FleshRender", "PlasMaster"},//Sharpshooter
-	{"SG12", "Badger", "Blockbuster", "Nailgun"}//Commando
+	{"nogun", "Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer"},//Firebug, placeholder
+	{"nogun", "Rhino", "BXR", "FleshRender", "PlasMaster"},//Sharpshooter
+	{"Hornet", "Spaz12", "Badger", "RPG", "Nailgun"}//Commando
 };
 
-str DS_AMMONAMES[4]=
+str DS_AMMONAMES[5]=
 {
+	"nomag",
 	"Shell", 
 	"Clip", 
 	"RocketAmmo", 
 	"Cells"
 };
 
-str DS_WEAPONMAGNAMES[5][4] =
+str DS_WEAPONMAGNAMES[5][5] =
 {
-	{"JHMag", "UACMag", "nomag", "nomag"},
-	{"RhinoMag", "BXRMag", "nomag", "PMMag"},
-	{"SGMag", "SMGMag", "nomag", "nomag"}
+	{"nomag", "JHMag", "UACMag", "nomag", "nomag"},
+	{"nomag", "RhinoMag", "BXRMag", "nomag", "PMMag"},
+	{"HornetMag", "SGMag", "SMGMag", "nomag", "nomag"} //Commando's ammos
 };
 
-int DS_AMMOCOUNTS[5][4] =
+int DS_AMMOCOUNTS[5][5] =
 {
-	{2, 10, 1, 4},
-	{2, 10, 1, 4},
-	{2, 10, 1, 4}
+	{0, 2, 10, 1, 4},
+	{0, 2, 10, 1, 4},
+	{0, 2, 10, 1, 4}
 };
 
 str DS_WEAPONPCKMSGS[5][4] =
@@ -47,10 +48,10 @@ str DS_WEAPONPCKMSGS[5][4] =
 	},
 	//Commando
 	{
-		"You've picked up the SG12 Shotgun. Ole' Reliable. (Slot 1)", 
-		"You got the Badger Submachine Gun. Spray and pray! (Slot 2)",
-		"You've picked up the Pulverizer Rocket Launcher. Turn 'em to gibs! (Slot 3)",
-		"You got the Nailgun. Something something crucifixion. (Slot 4)"
+		"You've picked up the Spaz12 Shotgun. Ole' Reliable. (Slot 2)", 
+		"You got the Badger Submachine Gun. Spray and pray! (Slot 3)",
+		"You've picked up the Pulverizer Rocket Launcher. Turn 'em to gibs! (Slot 4)",
+		"You got the Nailgun. Something something crucifixion. (Slot 5)"
 	}
 };
 
