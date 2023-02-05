@@ -9,7 +9,7 @@ actor ngBulletPuff : BulletPuff
 	+NOEXTREMEDEATH
 }
 
-actor Hornet : Weapon replaces Pistol
+actor Hornet : Weapon
 {
 	Obituary "%o was stung by %k's Hornet."
 	Inventory.PickupMessage "There is literally no way this message should show up."
@@ -46,8 +46,10 @@ actor Hornet : Weapon replaces Pistol
 		Goto Reload
 		
 		HORF A 0 bright A_FireBullets (2,2,-1,15,"ngBulletPuff")
+		HORF A 0 A_FireCustomMissile("SmolSmonkSpawner", 0, 0, 12, 10)
+		TNT1 A 0 A_FireCustomMissile("BulletTrail", FRANDOM(-1, 1), 0, 22, 0, 0, FRANDOM(-2, 2))
 		HORF A 0 A_SetPitch(pitch-.5)
-		HORF A 0 A_PlaySound("Weapons/HORNFIR", 1, 0.8)
+		HORF A 0 A_PlaySound("Weapons/HORNFIR", 1, 0.7)
 		HORF A 1 A_TakeInventory("HornetMag", 1)
 		HORF B 0 Radius_Quake (1,1,0,1,0)
 		HORF B 1 bright
@@ -56,11 +58,11 @@ actor Hornet : Weapon replaces Pistol
 	Reload:
 		HORN A 0 A_JumpIfInventory("HornetMag", 0, "Reset")
 		HORR ABCDEFG 2
-		HORR H 2 A_PlaySound("Weapons/HORNR1", 0)
+		HORR H 2 A_PlaySound("Weapons/HORNRL1", 0)
 		HORR IJKLMN 2
-		HORR O 2 A_PlaySound("Weapons/HORNR3", 0)
+		HORR O 2 
 		HORR P 2
-		HORR Q 2 A_PlaySound("Weapons/HORNR4", 0)
+		HORR Q 2 
 		HORA ABCD 2
 		HORR RSTUVWXYZ 2
 		HORT A 2 A_PlaySound("Weapons/HORNPIK", 0)

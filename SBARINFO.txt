@@ -33,29 +33,36 @@ Statusbar FullScreen, forcescaled
 		DrawImage "RPGPA0", 720, 250;
 		DrawNumber 3, INDEXFONT, White, RocketAmmo, alignment(center), 720, 250;
 	}
+	InInventory Megawave, 1
+	{
+		DrawImage "MGWVA0", 720, 200;
+		DrawNumber 3, INDEXFONT, White, Cell, alignment(center), 720, 200;
+	}
 	IsSelected Hornet
 	{
 		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 425;
+		DrawImage "HORIA0", 710, 420;
 	}
 	IsSelected Spaz12
 	{
-		DrawImage "SPASA0", 680, 430;
+		DrawImage "SPASA0", 700, 430;
 		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
 		DrawNumber 3, JENOBIG, White, Ammo2, alignment(center), 625, 425;
 	}
 	IsSelected P90
 	{
-		DrawImage "P90SA0", 680, 430;
+		DrawImage "P90SA0", 710, 425;
 		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
 		DrawNumber 3, JENOBIG, White, Ammo2, alignment(center), 625, 425;
 	}
 	IsSelected RPG
 	{
-		DrawImage "RPGPA0", 680, 430;
+		DrawImage "RPGPA0", 690, 430;
 		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
 	}
 	IsSelected Megawave
 	{
+		DrawImage "MGWVA0", 710, 430;
 		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
 		DrawNumber 3, JENOBIG, White, Ammo2, alignment(center), 625, 425;
 	}

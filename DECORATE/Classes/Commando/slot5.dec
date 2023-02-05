@@ -160,7 +160,7 @@ Actor Megawave : Weapon
 			TNT1 A 0 
 			Goto Ready
 		Overheat:
-			TNT1 A 0 A_FireCustomMissile("Smonk", 0)
+			TNT1 A 0 A_FireCustomMissile("SmonkSpawner", 0, 0, 12)
 			TNT1 A 0 A_GiveInventory("MGOverheated", 1)
 			MGOH A 1 A_PlaySound("Weapons/FOCUSOH", 1)
 			MGOH BCDEFG 1

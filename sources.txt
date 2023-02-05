@@ -1,5 +1,4 @@
-*FiveSeven firing Sound - Killing Floor IJC Weapon Pack
-*FiveSeven Reload sounds - Killing Floor
+*FiveSeven sounds created by me using samples pulled from here: https://opengameart.org/content/the-free-firearm-sound-library
 *Shotgun pumping sound - L4D2
 *Shotgun model - ProgrammerNetwork
 *Weapon and Ammo Crate sprites - Ac!d (Edited by me)

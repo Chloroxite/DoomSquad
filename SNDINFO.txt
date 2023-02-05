@@ -2,10 +2,7 @@
 Weapons/HORNFIR HORNFIR
 Weapons/HORNRC HORNRC
 Weapons/HORNPIK HORNPIK
-Weapons/HORNR1 HORNR1
-Weapons/HORNR2 HORNR2
-Weapons/HORNR3 HORNR3
-Weapons/HORNR4 HORNR4
+Weapons/HORNRL1 HORNRL1
 
 //Shotgun
 Weapons/SGFIR SGFIR
@@ -17,8 +14,8 @@ Weapons/SGRELOAD SGRELOAD
 Weapons/SGPUMP3 SGPUMP3
 
 //SMG
-
-Weapons/SMGFIR1 SMGFIR1
+Weapons/SMGLOOP SMGLOOP
+Weapons/SMGEND SMGEND
 Weapons/SMGR1 SMGR1
 Weapons/SMGR2 SMGR2
 Weapons/SMGR3 SMGR3
@@ -86,6 +83,9 @@ Weapons/FOCUSEND FOCUSEND
 Weapons/FOCUSLP FOCUSLP
 Weapons/FOCUSOH FOCUSOH
 Weapons/FOCUSPK FOCUSPK
+
+//Ultimate abilities
+Ult/CHEnter CHEnter
 
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK
