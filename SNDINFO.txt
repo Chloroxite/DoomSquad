@@ -86,6 +86,10 @@ Weapons/FOCUSPK FOCUSPK
 
 //Ultimate abilities
 Ult/CHEnter CHEnter
+Ult/CHATK CHATK
+Ult/CHATKLP CHATKLP
+Ult/CHExit CHExit
+Ult/HYPFAIL HYPFAIL
 
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK

@@ -1,69 +1,87 @@
-resolution 740, 500;
 interpolateHealth true, 6;
 interpolateArmor true, 6;
 
-Statusbar FullScreen, forcescaled
+Statusbar FullScreen, fullscreenoffsets
 {
 	//Health and Armor
-	DrawKeyBar 6, Horizontal, 20, -15, 400;
-	DrawBar "HBARA0", "HBBGA0", Health (100), Horizontal, -15, 426;
-	DrawBar "HBARB0", "HBBGB0", Health (200), Horizontal, -102, 426; //health overcharge bar
-	DrawBar "ABARA0", "HBBGA0", Armor (100), Horizontal, 5, 451;
-	DrawBar "ABARB0", "HBBGB0", Armor (200), Horizontal, -82, 451; //armor overcharge bar
-	DrawImage "HHUDA0", -100, 350;
-	DrawNumber 3, JENOBIG, White, Health, 105, 425;
-	DrawNumber 3, JENOBIG, White, Armor, 125, 450;
-	DrawMugShot 9, -100, 450;
+	DrawImage "HHUDA0", 141, -150;
+	DrawKeyBar 6, Horizontal, 20, 15, -400;
+	DrawBar "HBARA0", "HBBGA0", Health (100), Horizontal, 219, -96;
+	DrawBar "HBARB0", "HBBGB0", Health (200), Horizontal, 37, -96; //health overcharge bar
+	DrawBar "ABARA0", "HBBGA0", Armor (100), Horizontal, 182, -148;
+	DrawBar "ABARB0", "HBBGB0", Armor (200), Horizontal, 0, -148; //armor overcharge bar
+	DrawNumber 3, JENOBIG, White, Health, alignment(left), drawshadow, 235, -85;
+	DrawNumber 3, JENOBIG, White, Armor, alignment(left), drawshadow, 200, -137;
 	
-	DrawImage "AHUDA0", 574, 395;
 	
 	//Weapon Display (Commando)
+	InInventory Hornet, 1
+	{
+		DrawImage "HORIA0", -120, 460;
+	}
 	InInventory Spaz12, 1
 	{
-		DrawImage "SPASA0", 720, 350;
-		DrawNumber 3, INDEXFONT, White, Shell, alignment(center), 720, 350;
+		DrawImage "SPASA0", -120, 420;
+		DrawNumber 3, JENOBIG, White, Shell, alignment(center), -120, 400;
 	}
 	InInventory P90, 1
 	{
-		DrawImage "P90SA0", 720, 300;
-		DrawNumber 3, INDEXFONT, White, Clip, alignment(center), 720, 300;
+		DrawImage "P90SA0", -120, 340;
+		DrawNumber 3, JENOBIG, White, Clip, alignment(center), -120, 340;
 	}
 	InInventory RPG, 1
 	{
-		DrawImage "RPGPA0", 720, 250;
-		DrawNumber 3, INDEXFONT, White, RocketAmmo, alignment(center), 720, 250;
+		DrawImage "RPGPA0", -120, 300;
+		DrawNumber 3, JENOBIG, White, RocketAmmo, alignment(center), -120, 280;
 	}
 	InInventory Megawave, 1
 	{
-		DrawImage "MGWVA0", 720, 200;
-		DrawNumber 3, INDEXFONT, White, Cell, alignment(center), 720, 200;
+		DrawImage "MGWVA0", -120, 240;
+		DrawNumber 3, JENOBIG, White, Cell, alignment(center), -120, 220;
+	}
+	InInventory ComHyper, 1
+	{
+		DrawImage "HYBGA0", 50, -290;
+		DrawBar "HYBRA0", "HYNLA0", HypEnergy, Vertical, 80, -288;
+		InInventory HypEnergy, 100
+		{
+			DrawImage "HIBGA0", 53, -126;
+		}
+		DrawImage "CHYPA0", 74, -101;
 	}
 	IsSelected Hornet
 	{
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 425;
-		DrawImage "HORIA0", 710, 420;
+		DrawImage "WSLTA0", -140, 455;
+		DrawImage "MHUDA0", -441, -95;
+		DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
+		DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
 	}
 	IsSelected Spaz12
 	{
-		DrawImage "SPASA0", 700, 430;
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
-		DrawNumber 3, JENOBIG, White, Ammo2, alignment(center), 625, 425;
+		DrawImage "WSLTA0", -140, 395;
+		DrawImage "MHUDA0", -441, -95;
+		DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
+		DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
 	}
 	IsSelected P90
 	{
-		DrawImage "P90SA0", 710, 425;
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
-		DrawNumber 3, JENOBIG, White, Ammo2, alignment(center), 625, 425;
+		DrawImage "WSLTA0", -140, 335;
+		DrawImage "MHUDA0", -441, -95;
+		DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
+		DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
 	}
 	IsSelected RPG
 	{
-		DrawImage "RPGPA0", 690, 430;
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
+		DrawImage "WSLTA0", -140, 275;
+		DrawImage "MHUDA0", -441, -95;
+		DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
+		DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
 	}
 	IsSelected Megawave
 	{
-		DrawImage "MGWVA0", 710, 430;
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(center), 625, 455;
-		DrawNumber 3, JENOBIG, White, Ammo2, alignment(center), 625, 425;
+		DrawImage "WSLTA0", -140, 215;
+		DrawImage "MHUDA0", -441, -95;
+		DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
+		DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
 	}
 }

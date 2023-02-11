@@ -1,5 +1,16 @@
 Actor AbEnergy : Ammo
 {
 	+IGNORESKILL
-	Inventory.MaxAmount 100
+	Inventory.MaxAmount 100 //This should never go this high.
+}
+
+Actor HypEnergy : Ammo
+{
+	+IGNORESKILL
+	Inventory.MaxAmount 100 //Again, shouldn't ever go this high.
+}
+
+Actor inHyper : Inventory
+{
+	Inventory.MaxAmount 1
 }

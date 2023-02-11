@@ -1,9 +1,55 @@
 #include "zcommon.acs"
+#import "DSDefs.acs"
 script "global_setup" enter
 {
-	
+	While(true)
+	{
+		Delay(2);
+		if(!CheckInventory("inHyper") && CheckInventory("HypEnergy") < 100)
+		{	
+			if(CheckInventory("isCommando"))
+			{
+				Delay(15);
+				GiveInventory("HypEnergy", 1);
+			}
+		}
+	}
 }
-//script 301 (void) //hypermode
-//{
-	
-//}
+script 301 (void) net //hypermode
+{
+	If(CheckInventory("comHyper") && !CheckInventory("inHyper"))
+	{
+		If(CheckInventory("HypEnergy") >= 100)
+		{
+			bool hyperBroken = false;
+			str currWeapon = GetWeapon();
+			SetWeapon("comHyper");
+			Do //Wait for the player to enter hypermode (some animations may make it take longer)
+				Delay(5);
+			While(!CheckInventory("inHyper"));
+			Do
+			{
+				Delay(5);
+				//print(s:getweapon());
+				If(!CheckInventory("inHyper"))
+				{
+					//print(s:"Hypermode broken!");
+					hyperBroken = true;
+					break;
+				}
+			}While(CheckInventory("HypEnergy") > 0);
+			If(!hyperBroken)
+				SetWeapon(currWeapon);
+		}
+		Else
+		{
+			Log(s:logcolors[GetCVar("msg0color")], s:"You do not have enough energy...");
+			LocalAmbientSound("Ult/HYPFAIL", 50);
+		}
+	}
+	Else
+	{
+		Log(s:logcolors[GetCVar("msg0color")], s:"The shadows evade your grasp...");
+		LocalAmbientSound("Ult/HYPFAIL", 50);
+	}
+}

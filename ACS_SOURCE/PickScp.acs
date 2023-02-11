@@ -24,7 +24,7 @@ script "DS_GiveWeapons" (int wep, int dropped)
 		ACS_ExecuteAlways(500, 0, class, wep-1);
 		GiveInventory(DS_WEAPONNAMES[class][wep-1], 1);
 	}
-	else if((!AmmoFull && DS_AMMONAMES[wep-1] != "SMGHealerAmmo") && ((dropped == 0 && weaponstay == 0) || dropped == 1))
+	else if((!AmmoFull) && ((dropped == 0 && weaponstay == 0) || dropped == 1))
 	{
 		success = 1;
 		ACS_ExecuteAlways(500, 0, class, wep-1);
