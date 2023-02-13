@@ -10,7 +10,13 @@ Actor HypEnergy : Ammo
 	Inventory.MaxAmount 100 //Again, shouldn't ever go this high.
 }
 
+//flags
 Actor inHyper : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+Actor inAbility : Inventory
 {
 	Inventory.MaxAmount 1
 }

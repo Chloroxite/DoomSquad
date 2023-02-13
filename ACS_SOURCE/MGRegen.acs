@@ -1,10 +1,14 @@
 #include "zcommon.acs"
 #import "DSDefs.acs"
+
+//Yeah yeah I know this code probably looks extremely gross. I'm not gonna say you're wrong lol.
+
 script "global_setup" enter
 {
 	While(true)
 	{
-		Delay(2);
+		Delay(2); //Run-away prevention
+		//Recharge HypEnergy
 		if(!CheckInventory("inHyper") && CheckInventory("HypEnergy") < 100)
 		{	
 			if(CheckInventory("isCommando"))
@@ -13,21 +17,46 @@ script "global_setup" enter
 				GiveInventory("HypEnergy", 1);
 			}
 		}
+		
+		//Recharge AbEnergy
+		if(!CheckInventory("inAbility") && CheckInventory("AbEnergy") < 100)
+		{	
+			if(CheckInventory("isCommando"))
+			{
+				Delay(15);
+				GiveInventory("AbEnergy", 3);
+			}
+		}
 	}
 }
+//The systems for hypermode and abilities are currently not great, and are definitely filled with bugs, but I'll come back to it later, maybe some
+//time will put a better way of handling it in my head.
+
 script 301 (void) net //hypermode
 {
-	If(CheckInventory("comHyper") && !CheckInventory("inHyper"))
+	If(CheckInventory("inHyper") && GetWeapon != "comHyper") //If you managed to break this thing, reset.
+		TakeInventory("inHyper", 1);
+		
+	If(CheckInventory("comHyper") && !CheckInventory("inHyper") && !CheckInventory("inAbility"))
 	{
 		If(CheckInventory("HypEnergy") >= 100)
 		{
 			bool hyperBroken = false;
+			int attempts = 0;
 			str currWeapon = GetWeapon();
 			SetWeapon("comHyper");
-			Do //Wait for the player to enter hypermode (some animations may make it take longer)
+			Do //Wait for the player to enter hypermode (some weapon animations may make it take longer)
+			{	
+				attempts++;
 				Delay(5);
+				if(attempts >= 50) //timeout if it takes too long (usually means the player swapped immediately)
+				{
+					hyperBroken = true;
+					break;
+				}
+			}
 			While(!CheckInventory("inHyper"));
-			Do
+			Do //Now wait for hypermode to drain or for the player to swap off of it.
 			{
 				Delay(5);
 				//print(s:getweapon());
@@ -47,9 +76,40 @@ script 301 (void) net //hypermode
 			LocalAmbientSound("Ult/HYPFAIL", 50);
 		}
 	}
-	Else
+	Else if(!CheckInventory("ComHyper"))
 	{
 		Log(s:logcolors[GetCVar("msg0color")], s:"The shadows evade your grasp...");
 		LocalAmbientSound("Ult/HYPFAIL", 50);
 	}
+	Delay(20);
+}
+
+script 300 (void) net //tactical ability
+{
+	If(CheckInventory("ComAbility") && !CheckInventory("inAbilty") && !CheckInventory("inHyper") && CheckInventory("AbEnergy") >= 100)
+	{
+		int attempts = 0;
+		str currWeapon = GetWeapon();
+		SetWeapon("ComAbility");
+		Do //Wait for the player to enter ability animations (some weapon animations may make it take longer)
+		{
+			attempts++;
+			Delay(5);
+			if(attempts >= 50) //timeout if it takes too long (usually means the player swapped immediately)
+				terminate;
+		}
+		While(!CheckInventory("inAbility"));
+		SetWeapon(currWeapon);
+	}
+	Else if(CheckInventory("AbEnergy") < 100 && CheckInventory("ComAbility"))
+	{
+		Log(s:logcolors[GetCVar("msg0color")], s:"You do not have enough energy...");
+		LocalAmbientSound("Ult/HYPFAIL", 50);
+	}
+	Else if(!CheckInventory("inAbility"))
+	{
+		Log(s:logcolors[GetCVar("msg0color")], s:"The shadows evade your grasp...");
+		LocalAmbientSound("Ult/HYPFAIL", 50);
+	}
+	Delay(20);
 }

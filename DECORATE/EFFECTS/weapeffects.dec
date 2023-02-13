@@ -63,15 +63,15 @@ Actor SpentBullet
 	BounceFactor 0.5
 	WallBounceFactor 0.25
 	BounceCount 3
-	Seesound "Misc/DSSHELL3"
+	Seesound "BULCASE"
 	states
 	{
 	Spawn:
-		SHLL ABCDEFGH 2
+		CASE ABCDEFGH 1
 		loop
 	Death:
-		SHLL C 512
-		SHLL C 8 A_FadeOut(0.1)
+		CASE A 512
+		CASE A 8 A_FadeOut(0.1)
 		Stop
 	}
 }

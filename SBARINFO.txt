@@ -5,7 +5,6 @@ Statusbar FullScreen, fullscreenoffsets
 {
 	//Health and Armor
 	DrawImage "HHUDA0", 141, -150;
-	DrawKeyBar 6, Horizontal, 20, 15, -400;
 	DrawBar "HBARA0", "HBBGA0", Health (100), Horizontal, 219, -96;
 	DrawBar "HBARB0", "HBBGB0", Health (200), Horizontal, 37, -96; //health overcharge bar
 	DrawBar "ABARA0", "HBBGA0", Armor (100), Horizontal, 182, -148;
@@ -13,6 +12,31 @@ Statusbar FullScreen, fullscreenoffsets
 	DrawNumber 3, JENOBIG, White, Health, alignment(left), drawshadow, 235, -85;
 	DrawNumber 3, JENOBIG, White, Armor, alignment(left), drawshadow, 200, -137;
 	
+	//Key Display
+	InInventory BlueCard
+	{
+		DrawImage "BKEYA0", 100, -20;
+	}
+	InInventory RedCard
+	{
+		DrawImage "RKEYA0", 120, -20;
+	}
+	InInventory YellowCard
+	{
+		DrawImage "YKEYA0", 140, -20;
+	}
+	InInventory BlueSkull
+	{
+		DrawImage "BSKUA0", 160, -20;
+	}
+	InInventory RedSkull
+	{
+		DrawImage "RSKUA0", 180, -20;
+	}
+	InInventory YellowSkull
+	{
+		DrawImage "YSKUA0", 200, -20;
+	}
 	
 	//Weapon Display (Commando)
 	InInventory Hornet, 1
@@ -48,6 +72,16 @@ Statusbar FullScreen, fullscreenoffsets
 			DrawImage "HIBGA0", 53, -126;
 		}
 		DrawImage "CHYPA0", 74, -101;
+	}
+	InInventory ComAbility, 1
+	{
+		DrawImage "ABBGA0", -200, -100;
+		DrawBar "ABBRA0", "ABBRB0", AbEnergy, Vertical, -196, -96;
+		InInventory AbEnergy, 100
+		{
+			DrawImage "ARDYA0", -200, -100;
+		}
+		DrawImage "CMABA0", -200, -100;
 	}
 	IsSelected Hornet
 	{
