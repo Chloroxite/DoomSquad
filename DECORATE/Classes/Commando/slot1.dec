@@ -68,7 +68,7 @@ actor Hornet : Weapon
 		HORR RSTUVWXYZ 2
 		HORT A 2 A_PlaySound("Weapons/HORNPIK", 0)
 		HORT BCDEF 2
-		HORT A 0 ACS_NamedExecute("ReloadWeapon", 0, 2, 0, 0)
+		HORT A 0 ACS_NamedExecute("ReloadWeapon", 0, 0, 0, 0)
 		Goto Ready
 	Reset:
 		TNT1 A 0

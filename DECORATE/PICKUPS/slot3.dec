@@ -1,21 +1,27 @@
-Actor Slot3PickupReplaceRL : CustomInventory Replaces RocketLauncher
+Actor Slot3ReplaceCG : CustomInventory Replaces Chaingun
 {
+	Scale 0.5
 	Inventory.PickupMessage ""
-	Inventory.PickupSound ""
+	Inventory.PickupSound "Pickups/WPICK"
 	+COUNTITEM
 	states
 	{
 	Spawn:
-		SCBX A 0
-		SCBX A 0 A_JumpIf(ACS_NamedExecuteWithResult("WasIDropped") == 1, "IWasDroppedOnMyHead")
-		SCBX A 35 A_JumpIf(1 == 1, "SpriteLoop")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("WasIDropped") == 1, "IWasDroppedOnMyHead")
+		TNT1 A 35 A_JumpIf(1 == 1, "SpriteLoop")
 		Wait
 	SpriteLoop:
-		SCBX A 1 A_ChangeFlag("FLOATBOB", 0)
+		TNT1 A 35 ACS_NamedExecute("DS_DisplayWep", 0, 3)
 		Loop
+		
+		Commando: CPIK B 35 A_ChangeFlag("FLOATBOB", 0) Goto SpriteLoop
+		Sharpshooter: TNT1 A 35 A_ChangeFlag("FLOATBOB", 0) Goto SpriteLoop
+		Firebug: TNT1 A 35 A_ChangeFlag("FLOATBOB", 0) Goto SpriteLoop
+		
 	IWasDroppedOnMyHead:
 		TNT1 A 0 A_Print("This item has been dropped")
-		SCBX A 1 A_SpawnItemEX("Slot3PickupDrop", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM)
+		TNT1 A 1 A_SpawnItemEX("Slot3Drop", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM)
 		Stop
 	Pickup:
 		TNT1 A 0 A_JumpIf((ACS_NamedExecuteWithResult("DS_GiveWeapons", 3, 0) & 3) == 1, "DespawnPickup")
@@ -29,7 +35,7 @@ Actor Slot3PickupReplaceRL : CustomInventory Replaces RocketLauncher
 	}
 }
 
-Actor Slot3PickupDrop : Slot3PickupReplaceRL
+Actor Slot3Drop : Slot3ReplaceCG
 {
 	states
 	{

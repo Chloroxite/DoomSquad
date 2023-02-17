@@ -1,10 +1,10 @@
 #library "DSDefs"
 
-str DS_WEAPONNAMES[5][5] =
+str DS_WEAPONNAMES[5][7] =
 {
-	{"nogun", "Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer"},//Firebug, placeholder
-	{"nogun", "Rhino", "BXR", "FleshRender", "PlasMaster"},//Sharpshooter
-	{"Hornet", "Spaz12", "Badger", "RPG", "Nailgun"}//Commando
+	{"Hornet", "Spaz12", "P90", "RPG", "Megawave", "ComAbility", "comHyper"}, //Commando
+	{"nogun", "Rhino", "BXR", "FleshRender", "PlasMaster", "nowep", "nowep"}, //Sharpshooter
+	{"nogun", "Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer", "nowep", "nowep"} //Firebug, placeholder
 };
 
 str DS_AMMONAMES[5]=
@@ -16,12 +16,14 @@ str DS_AMMONAMES[5]=
 	"Cells"
 };
 
-str DS_WEAPONMAGNAMES[5][5] =
+str DS_WEAPONMAGNAMES[5][7] =
 {
-	{"nomag", "JHMag", "UACMag", "nomag", "nomag"},
-	{"nomag", "RhinoMag", "BXRMag", "nomag", "PMMag"},
-	{"HornetMag", "SGMag", "SMGMag", "nomag", "nomag"} //Commando's ammos
+	{"HornetMag", "SGMag", "SMGMag", "nomag", "nomag", "nomag", "nomag"}, //Commando's ammos
+	{"nomag", "JHMag", "UACMag", "nomag", "nomag", "nomag", "nomag"},
+	{"nomag", "RhinoMag", "BXRMag", "nomag", "PMMag", "nomag", "nomag"}
 };
+
+str DS_PICKUPSTATES[7] = {"Commando", "Sharpshooter", "Firebug"};
 
 int DS_AMMOCOUNTS[5][5] =
 {
@@ -30,28 +32,33 @@ int DS_AMMOCOUNTS[5][5] =
 	{0, 2, 10, 1, 4}
 };
 
-str DS_WEAPONPCKMSGS[5][4] =
+str DS_WEAPONPCKMSGS[5][6] =
 {
-	//Firebug (these are placeholder, and are holdovers from the assault class)
+	//Commando
 	{
-		"You got the Jackhammer Automatic Shotgun. Close range mowin'! (Slot 1)", 
-		"You got the UAC4A assault rifle. Tacticool! (Slot 2)", 
-		"You got the Blockbuster. It's quite literal! (Slot 3)",
-		"You got the Flamenwurfer. Pretty sure that's not spelled right... (Slot 4)"
+		"You've picked up the Spaz12 Shotgun. Ole' Reliable. (Slot 2)", 
+		"You got the P90 Submachine Gun. Spray and pray! (Slot 3)",
+		"You've picked up the RPG. Turn 'em to gibs! (Slot 4)",
+		"You've obtained the Megawave. Time to do some cooking! (Slot 5)",
+		"Your hands begin glowing for a fleeting moment... (Tactical unlocked)",
+		"You feel a strange energy coursing through your fingers... (Hypermode unlocked)"
+		
 	},
 	//Sharpshooter
 	{
 		"You got the Rhino. Fuck some shit up. (Slot 1)", 
 		"You got the MBR12 Battle Rifle. Long range mowin'! (Slot 2)", 
 		"You got the Fleshrender Crossbow. Do some explodin'. (Slot 3)", 
-		"You got the PlasMaster Railgun. Snipin's a good job. (Slot 4)"
+		"You got the PlasMaster Railgun. Snipin's a good job. (Slot 4)",
+		"lolidk (Tactical unlocked)",
+		"The shadows grant you connection to your ancestors... (Hypermode unlocked)"
 	},
-	//Commando
+	//Firebug (these are placeholder, and are holdovers from the assault class)
 	{
-		"You've picked up the Spaz12 Shotgun. Ole' Reliable. (Slot 2)", 
-		"You got the Badger Submachine Gun. Spray and pray! (Slot 3)",
-		"You've picked up the Pulverizer Rocket Launcher. Turn 'em to gibs! (Slot 4)",
-		"You got the Nailgun. Something something crucifixion. (Slot 5)"
+		"You got the Jackhammer Automatic Shotgun. Close range mowin'! (Slot 1)", 
+		"You got the UAC4A assault rifle. Tacticool! (Slot 2)", 
+		"You got the Blockbuster. It's quite literal! (Slot 3)",
+		"You got the Flamenwurfer. Pretty sure that's not spelled right... (Slot 4)"
 	}
 };
 

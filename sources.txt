@@ -1,7 +1,7 @@
 *FiveSeven sounds created by me using samples pulled from here: https://opengameart.org/content/the-free-firearm-sound-library
 *Shotgun pumping sound - L4D2
 *Shotgun model - ProgrammerNetwork
-*Weapon and Ammo Crate sprites - Ac!d (Edited by me)
+*Weapon and Ammo Crate sprites - Me, I made them.
 *P90 Model - ProgrammerNetwork (Found on DeviantArt)
 *P90 Sounds - CS-GO, except for firing sound which was custom.
 *Rocket Luancher sounds (including explosions) - Killing Floor
@@ -14,8 +14,6 @@
 *Ammo pickup sound from UT99
 *Respawn sound from UT99
 *Small Health sound from UT99
-*Lever Action Rifle sprite - Pulled from a Fallout model by primnull (Found on DeviantArt)
-*Lever Action Rifle sounds - KF1
 *Smoke effects - Taken from Mace's mod, Atom Rain. (Thanks bud!)
 *Script for bullet case ejection barrowed from Complex Doom. (I'm really bad at math)
 *Shell bounce sound borrowed from Complex Doom.

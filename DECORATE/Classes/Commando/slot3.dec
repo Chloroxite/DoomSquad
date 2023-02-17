@@ -124,7 +124,7 @@ Actor P90 : Weapon
 			P9R2 O 2
 			//P9R2 P 2
 			P9R2 Q 2
-			P9R2 R 2 ACS_NamedExecute("ReloadWeapon", 0, 2, 2, 2)
+			P9R2 R 2 ACS_NamedExecute("ReloadWeapon", 0, 0, 2, 2)
 			Goto Ready
 		Reset:
 			TNT1 A 0

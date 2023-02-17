@@ -3,8 +3,40 @@
 
 //Yeah yeah I know this code probably looks extremely gross. I'm not gonna say you're wrong lol.
 
+int ClientClass;
+global str 1:currWeapon;
+
 script "global_setup" enter
 {
+	//Reset players out of abilities.
+	if(CheckInventory("inHyper"))
+	{
+		TakeInventory("inHyper", 1);
+		SetWeapon(currWeapon);
+	}
+	if(CheckInventory("inAbility"))
+	{
+		TakeInventory("inAbility", 1);
+		SetWeapon(currWeapon);
+	}
+	
+	
+	
+	//Figure out what class the player is
+	switch(GetActorClass(0))
+	{
+		Case "CommandoPlayer":
+			ClientClass = 1;
+			Break;
+		Case "FirebugPlayer":
+			ClientClass = 2;
+			Break;
+		Case "SharpshooterPlayer":
+			ClientClass = 3;
+			Break;
+	};
+	
+	
 	While(true)
 	{
 		Delay(2); //Run-away prevention
@@ -29,7 +61,8 @@ script "global_setup" enter
 		}
 	}
 }
-//The systems for hypermode and abilities are currently not great, and are definitely filled with bugs, but I'll come back to it later, maybe some
+
+//The systems for hypermode and abilities are currently not great, and are definitely filled with bugs, but maybe I'll come back to it later, maybe some
 //time will put a better way of handling it in my head.
 
 script 301 (void) net //hypermode
@@ -43,7 +76,7 @@ script 301 (void) net //hypermode
 		{
 			bool hyperBroken = false;
 			int attempts = 0;
-			str currWeapon = GetWeapon();
+			currWeapon = GetWeapon();
 			SetWeapon("comHyper");
 			Do //Wait for the player to enter hypermode (some weapon animations may make it take longer)
 			{	
@@ -89,7 +122,7 @@ script 300 (void) net //tactical ability
 	If(CheckInventory("ComAbility") && !CheckInventory("inAbilty") && !CheckInventory("inHyper") && CheckInventory("AbEnergy") >= 100)
 	{
 		int attempts = 0;
-		str currWeapon = GetWeapon();
+		currWeapon = GetWeapon();
 		SetWeapon("ComAbility");
 		Do //Wait for the player to enter ability animations (some weapon animations may make it take longer)
 		{
@@ -112,4 +145,19 @@ script 300 (void) net //tactical ability
 		LocalAmbientSound("Ult/HYPFAIL", 50);
 	}
 	Delay(20);
+}
+
+script "respawn" respawn
+{
+	//Reset players out of abilities.
+	if(CheckInventory("inHyper"))
+	{
+		TakeInventory("inHyper", 1);
+		SetWeapon(currWeapon);
+	}
+	if(CheckInventory("inAbility"))
+	{
+		TakeInventory("inAbility", 1);
+		SetWeapon(currWeapon);
+	}
 }

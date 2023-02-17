@@ -1,9 +1,9 @@
-#include DECORATE/PICKUPS/slot1.dec
 #include DECORATE/PICKUPS/slot2.dec
 #include DECORATE/PICKUPS/slot3.dec
 #include DECORATE/PICKUPS/slot4.dec
-#include DECORATE/PICKUPS/primaryammo.dec
-#include DECORATE/PICKUPS/secondaryammo.dec
+#include DECORATE/PICKUPS/slot5.dec
+#include DECORATE/PICKUPS/hypersphere.dec
+#include DECORATE/Pickups/tacsphere.dec
 #include DECORATE/Pickups/radsuit.dec
 #include DECORATE/Pickups/largehealth.dec
 

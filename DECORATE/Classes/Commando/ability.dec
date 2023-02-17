@@ -87,6 +87,9 @@ Actor comHyper : Weapon
 			TNT1 A 0 A_TakeInventory("HypEnergy", 1)
 			Loop
 		Fire:
+			TNT1 A 0 A_JumpIfInventory("HypEnergy", 1, 1)
+			Goto Ready2
+			
 			CHYF BCD 1 bright
 			CHYF E 1 bright
 			TNT1 A 0 A_PlaySound("Ult/CHATK", 0, 1)

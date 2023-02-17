@@ -10,11 +10,11 @@ script "WasIDropped" (void)
 function int GetClassNumber (void)
 {
 	int classnum = 0;
-	if(CheckInventory("IsFirebug"))
+	if(CheckInventory("IsCommando"))
 		classnum = 0;
 	if(CheckInventory("IsSharpshooter"))
 		classnum = 1;
-	if(CheckInventory("IsCommando"))
+	if(CheckInventory("IsFirebug"))
 		classnum = 2;
 	
 	//log(i:classnum);
@@ -51,3 +51,4 @@ script "ReloadWeapon" (int x, int y, int z)
 	else
 		GiveInventory(magType, magSize);
 }
+
