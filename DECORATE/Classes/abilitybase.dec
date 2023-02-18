@@ -1,13 +1,13 @@
 Actor AbEnergy : Ammo
 {
 	+IGNORESKILL
-	Inventory.MaxAmount 100 //This should never go this high.
+	Inventory.MaxAmount 100
 }
 
 Actor HypEnergy : Ammo
 {
 	+IGNORESKILL
-	Inventory.MaxAmount 100 //Again, shouldn't ever go this high.
+	Inventory.MaxAmount 100
 }
 
 //flags
@@ -17,6 +17,16 @@ Actor inHyper : Inventory
 }
 
 Actor inAbility : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+Actor HasHyper : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+Actor HasAbility : Inventory
 {
 	Inventory.MaxAmount 1
 }

@@ -4,6 +4,11 @@ actor HornetMag : Ammo
 	Inventory.MaxAmount 12
 }
 
+actor HEmptyMag : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
 actor ngBulletPuff : BulletPuff
 {
 	+NOEXTREMEDEATH
@@ -42,22 +47,24 @@ actor Hornet : Weapon
 		HORE A 1
 		Goto Ready
 	Fire:
-		TNT1 A 0 A_JumpIfInventory("HornetMag", 1, 1)
+		"----" A 1 A_JumpIfInventory("HornetMag", 1, 1)
 		Goto Reload
 		
-		HORF A 0 bright A_FireBullets (2,2,-1,15,"ngBulletPuff")
+		HORF A 1 bright A_FireBullets (2,2,-1,15,"ngBulletPuff")
 		HORF A 0 A_SpawnItemEx("SpentBullet",Cos(Pitch)*30,15,35-(Sin(Pitch)*25),Cos(Pitch)*FRandom(2,4),FRandom(5,6),-Sin(Pitch)*FRandom(3,6),0,SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH)
 		HORF AAAA 0 A_FireCustomMissile("SmolSmonkSpawner", 0, 0, 12, 2)
 		TNT1 A 0 A_FireCustomMissile("BulletTrail", FRANDOM(-1, 1), 0, 22, 0, 0, FRANDOM(-2, 2))
 		HORF A 0 A_SetPitch(pitch-.5)
 		HORF A 0 A_PlaySound("Weapons/HORNFIR", 1, 0.7)
-		HORF A 1 A_TakeInventory("HornetMag", 1)
-		HORF B 0 Radius_Quake (1,1,0,1,0)
+		HORF A 0 A_TakeInventory("HornetMag", 1)
 		HORF B 1 bright
 		HORF CDE 1
 		Goto Ready
 	Reload:
-		HORN A 0 A_JumpIfInventory("HornetMag", 0, "Reset")
+		"----" A 1 A_JumpIfInventory("HornetMag", 0, "Reset")
+		"----" A 1 A_JumpIfInventory("HornetMag", 1, 2)
+		"----" A 1 A_GiveInventory("HEmptyMag", 1)
+		
 		HORR ABCDEFG 2
 		HORR H 2 A_PlaySound("Weapons/HORNRL1", 0)
 		HORR IJKLMN 2
@@ -65,13 +72,17 @@ actor Hornet : Weapon
 		HORR P 2
 		HORR Q 2 
 		HORA BCD 2
-		HORR RSTUVWXYZ 2
+		HORR RST 2
+		HORR T 1 A_JumpIfInventory("HEmptyMag", 1, 1)
+		Goto Reload+39
+		
+		HORR UVWXYZ 2
 		HORT A 2 A_PlaySound("Weapons/HORNPIK", 0)
 		HORT BCDEF 2
 		HORT A 0 ACS_NamedExecute("ReloadWeapon", 0, 0, 0, 0)
-		Goto Ready
+		Goto Reset
 	Reset:
-		TNT1 A 0
+		HORN A 2 A_TakeInventory("HEmptyMag", 1)
 		Goto Ready
 	Flash:
 		TNT1 A 2 bright

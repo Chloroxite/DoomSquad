@@ -2,7 +2,7 @@
 
 str DS_WEAPONNAMES[5][7] =
 {
-	{"Hornet", "Spaz12", "P90", "RPG", "Megawave", "ComAbility", "comHyper"}, //Commando
+	{"Hornet", "Spaz12", "P90", "RPG", "Megawave", "HasAbility", "HasHyper"}, //Commando
 	{"nogun", "Rhino", "BXR", "FleshRender", "PlasMaster", "nowep", "nowep"}, //Sharpshooter
 	{"nogun", "Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer", "nowep", "nowep"} //Firebug, placeholder
 };

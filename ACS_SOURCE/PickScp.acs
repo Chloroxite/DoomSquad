@@ -39,6 +39,10 @@ script 500 (int class, int slot) clientside
 	if(PlayerNumber() != ConsolePlayerNumber()) 
 		terminate;
 	Log(s:logcolors[GetCVar("msg0color")], s:DS_WEAPONPCKMSGS[class][slot]);
+	if(slot > 3)
+		LocalAmbientSound("Pickups/HYPERPIK", 127);
+	else
+		LocalAmbientSound("Pickups/WPICK", 127);
 }
 
 script "DS_DisplayWep" (void) clientside

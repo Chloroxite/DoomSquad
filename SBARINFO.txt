@@ -39,83 +39,86 @@ Statusbar FullScreen, fullscreenoffsets
 	}
 	
 	//Weapon Display (Commando)
-	InInventory Hornet, 1
+	InInventory isCommando, 1
 	{
-		DrawImage "HORIA0", -120, 460;
-	}
-	InInventory Spaz12, 1
-	{
-		DrawImage "SPASA0", -120, 420;
-		DrawNumber 3, JENOBIG, White, Shell, alignment(center), -120, 400;
-	}
-	InInventory P90, 1
-	{
-		DrawImage "P90SA0", -120, 340;
-		DrawNumber 3, JENOBIG, White, Clip, alignment(center), -120, 340;
-	}
-	InInventory RPG, 1
-	{
-		DrawImage "RPGPA0", -120, 300;
-		DrawNumber 3, JENOBIG, White, RocketAmmo, alignment(center), -120, 280;
-	}
-	InInventory Megawave, 1
-	{
-		DrawImage "MGWVA0", -120, 240;
-		DrawNumber 3, JENOBIG, White, Cell, alignment(center), -120, 220;
-	}
-	InInventory ComHyper, 1
-	{
-		DrawImage "HYBGA0", 50, -290;
-		DrawBar "HYBRA0", "HYNLA0", HypEnergy, Vertical, 80, -288;
-		InInventory HypEnergy, 100
+		InInventory Hornet, 1
 		{
-			DrawImage "HIBGA0", 53, -126;
+			DrawImage "HORIA0", -120, 460;
 		}
-		DrawImage "CHYPA0", 74, -101;
-	}
-	InInventory ComAbility, 1
-	{
-		DrawImage "ABBGA0", -200, -100;
-		DrawBar "ABBRA0", "ABBRB0", AbEnergy, Vertical, -196, -96;
-		InInventory AbEnergy, 100
+		InInventory Spaz12, 1
 		{
-			DrawImage "ARDYA0", -200, -100;
+			DrawImage "SPASA0", -120, 420;
+			DrawNumber 3, JENOBIG, White, Shell, alignment(center), -120, 400;
 		}
-		DrawImage "CMABA0", -200, -100;
-	}
-	IsSelected Hornet
-	{
-		DrawImage "WSLTA0", -140, 455;
-		DrawImage "MHUDA0", -441, -95;
-		DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
-	}
-	IsSelected Spaz12
-	{
-		DrawImage "WSLTA0", -140, 395;
-		DrawImage "MHUDA0", -441, -95;
-		DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
-		DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
-	}
-	IsSelected P90
-	{
-		DrawImage "WSLTA0", -140, 335;
-		DrawImage "MHUDA0", -441, -95;
-		DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
-		DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
-	}
-	IsSelected RPG
-	{
-		DrawImage "WSLTA0", -140, 275;
-		DrawImage "MHUDA0", -441, -95;
-		DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
-		DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
-	}
-	IsSelected Megawave
-	{
-		DrawImage "WSLTA0", -140, 215;
-		DrawImage "MHUDA0", -441, -95;
-		DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
-		DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
+		InInventory P90, 1
+		{
+			DrawImage "P90SA0", -120, 340;
+			DrawNumber 3, JENOBIG, White, Clip, alignment(center), -120, 340;
+		}
+		InInventory RPG, 1
+		{
+			DrawImage "RPGPA0", -120, 300;
+			DrawNumber 3, JENOBIG, White, RocketAmmo, alignment(center), -120, 280;
+		}
+		InInventory Megawave, 1
+		{
+			DrawImage "MGWVA0", -120, 240;
+			DrawNumber 3, JENOBIG, White, Cell, alignment(center), -120, 220;
+		}
+		InInventory HasHyper, 1
+		{
+			DrawImage "HYBGA0", 50, -290;
+			DrawBar "HYBRA0", "HYNLA0", HypEnergy, Vertical, 80, -288;
+			InInventory HypEnergy, 100
+			{
+				DrawImage "HIBGA0", 53, -126;
+			}
+			DrawImage "CHYPA0", 74, -101;
+		}
+		InInventory HasAbility, 1
+		{
+			DrawImage "ABBGA0", -200, -100;
+			DrawBar "ABBRA0", "ABBRB0", AbEnergy, Vertical, -196, -96;
+			InInventory AbEnergy, 100
+			{
+				DrawImage "ARDYA0", -200, -100;
+			}
+			DrawImage "CMABA0", -200, -100;
+		}
+		IsSelected Hornet
+		{
+			DrawImage "WSLTA0", -140, 455;
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
+		}
+		IsSelected Spaz12
+		{
+			DrawImage "WSLTA0", -140, 395;
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
+		}
+		IsSelected P90
+		{
+			DrawImage "WSLTA0", -140, 335;
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
+		}
+		IsSelected RPG
+		{
+			DrawImage "WSLTA0", -140, 275;
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
+		}
+		IsSelected Megawave
+		{
+			DrawImage "WSLTA0", -140, 215;
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo2, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
+		}
 	}
 }

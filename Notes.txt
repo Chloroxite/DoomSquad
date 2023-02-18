@@ -3,3 +3,24 @@ Feel free to do what you want (except reupload it without my permission and with
 but just know that much like my bedroom, it's going to look messy as fuck in here. I'm new to this.
 
 Oh, and if you use any of the sprites or sounds used here, make sure you credit the appropriate person. See "sources.txt"
+
+
+TODO:
+Investigate weapon desync (Solved!)
+
+Investigate weird weapon jitter (probably just A_Quake) (Done, it was just A_Quake)
+
+investigate blinking weapon pickups (Solved!)
+
+Reimplement pickup sounds for weaponstayed items (Done!)
+
+Figure out solution to ability and hypermode entrance desync (minor issue, doesn't appear to cause problems)
+
+WHY AREN'T ABILITY PICKUPS BOBBING?! (Solved! Use floatbob, not float)
+
+Oh god the p90 has a fucky sound bug in mp oh god my ears (Solved, at a cost)
+
+It's time for you to fix the rpg's sprite and animations. (Done!)
+
+Reset scripts have a few weird issues in mp, players can get the attack off before it forcefully kicks them out of it. 
+I think I know how to solve it though... (Solved, at a cost)

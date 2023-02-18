@@ -10,7 +10,7 @@ Actor RPGRocket
   States
   {
   Spawn:
-    ROCK A 1 Bright
+    RCKT A 1 Bright
     Loop
   Death:
 	EXP1 A 1 Bright A_Explode(140, 200)
@@ -34,18 +34,37 @@ Actor RPG : Weapon
 	States
 	{
 		Select:
-			TNT1 A 0 Offset(1, 20)
+			TNT1 AAAAAAAAAAAAAA 0 A_Raise
+			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+			Goto SelectEmpty
+			
 			RPGR O 1 A_PlaySound("Weapons/RLREADY", 1)
 			RPGR PQ 1
 			Goto Ready
+		SelectEmpty:
+			RPGF L 1 A_PlaySound("Weapons/RLREADY", 1)
+			RPGF KJI 1
+			Goto ReadyEmpty
 		Deselect:
 			TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+			Goto DeselectEmpty
 			
 			RPGR QPO 1
 			TNT1 A 0 A_Lower
 			Wait
 		DeselectDeath:
+			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
+			Goto DeselectDeathEmpty
+			
 			RPGS A 1 A_Lower
+			Wait
+		DeselectEmpty:
+			RPGF IJKL 1
+			TNT1 A 0 A_Lower
+			Wait
+		DeselectDeathEmpty:
+			RPGF I 1 A_Lower
 			Wait
 		Ready:
 			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
@@ -54,7 +73,7 @@ Actor RPG : Weapon
 			RPGS A 1 A_WeaponReady
 			Loop
 		ReadyEmpty:
-			RPGF I 1 A_WeaponReady
+			RPGF I 1 A_WeaponReady(WRF_NOFIRE)
 			TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, 1)
 			Loop
 			

@@ -2,7 +2,7 @@ Actor Slot5ReplacePlasmagun : CustomInventory Replaces PlasmaRifle
 {
 	Scale 0.5
 	Inventory.PickupMessage ""
-	Inventory.PickupSound "Pickups/WPICK"
+	Inventory.PickupSound ""
 	+COUNTITEM
 	states
 	{
@@ -12,7 +12,7 @@ Actor Slot5ReplacePlasmagun : CustomInventory Replaces PlasmaRifle
 		TNT1 A 35 A_JumpIf(1 == 1, "SpriteLoop")
 		Wait
 	SpriteLoop:
-		TNT1 A 35 ACS_NamedExecute("DS_DisplayWep", 0, 5)
+		"----" A 35 ACS_NamedExecuteAlways("DS_DisplayWep", 0, 5)
 		Loop
 		
 		Commando: CPIK D 35 A_ChangeFlag("FLOATBOB", 0) Goto SpriteLoop

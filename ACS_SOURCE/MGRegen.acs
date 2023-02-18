@@ -12,12 +12,16 @@ script "global_setup" enter
 	if(CheckInventory("inHyper"))
 	{
 		TakeInventory("inHyper", 1);
-		SetWeapon(currWeapon);
+		TakeInventory("ComHyper", 1);
+		//Delay(10);
+		//SetWeapon(currWeapon);
 	}
 	if(CheckInventory("inAbility"))
 	{
 		TakeInventory("inAbility", 1);
-		SetWeapon(currWeapon);
+		TakeInventory("ComAbility", 1);
+		//Delay(10);
+		//SetWeapon(currWeapon);  //Yeah so this causes issues in multiplayer. No simple solutions were found that didn't introduce more jank...
 	}
 	
 	
@@ -67,16 +71,17 @@ script "global_setup" enter
 
 script 301 (void) net //hypermode
 {
-	If(CheckInventory("inHyper") && GetWeapon != "comHyper") //If you managed to break this thing, reset.
-		TakeInventory("inHyper", 1);
+	/*If(CheckInventory("inHyper") && GetWeapon != "comHyper") //If you managed to break this thing, reset.
+		TakeInventory("inHyper", 1);*/
 		
-	If(CheckInventory("comHyper") && !CheckInventory("inHyper") && !CheckInventory("inAbility"))
+	If(CheckInventory("HasHyper") && !CheckInventory("inHyper") && !CheckInventory("inAbility"))
 	{
 		If(CheckInventory("HypEnergy") >= 100)
 		{
 			bool hyperBroken = false;
 			int attempts = 0;
 			currWeapon = GetWeapon();
+			GiveInventory("ComHyper", 1);
 			SetWeapon("comHyper");
 			Do //Wait for the player to enter hypermode (some weapon animations may make it take longer)
 			{	
@@ -102,27 +107,28 @@ script 301 (void) net //hypermode
 			}While(CheckInventory("HypEnergy") > 0);
 			If(!hyperBroken)
 				SetWeapon(currWeapon);
+			Delay(40);
+			TakeInventory("ComHyper", 1);
 		}
 		Else
 		{
-			Log(s:logcolors[GetCVar("msg0color")], s:"You do not have enough energy...");
-			LocalAmbientSound("Ult/HYPFAIL", 50);
+			ACS_ExecuteAlways(600, 0, 1);
 		}
 	}
-	Else if(!CheckInventory("ComHyper"))
+	Else if(!CheckInventory("HasHyper"))
 	{
-		Log(s:logcolors[GetCVar("msg0color")], s:"The shadows evade your grasp...");
-		LocalAmbientSound("Ult/HYPFAIL", 50);
+		ACS_ExecuteAlways(600, 0, 2);
 	}
 	Delay(20);
 }
 
 script 300 (void) net //tactical ability
 {
-	If(CheckInventory("ComAbility") && !CheckInventory("inAbilty") && !CheckInventory("inHyper") && CheckInventory("AbEnergy") >= 100)
+	If(CheckInventory("HasAbility") && !CheckInventory("inAbilty") && !CheckInventory("inHyper") && CheckInventory("AbEnergy") >= 100)
 	{
 		int attempts = 0;
 		currWeapon = GetWeapon();
+		GiveInventory("ComAbility", 1);
 		SetWeapon("ComAbility");
 		Do //Wait for the player to enter ability animations (some weapon animations may make it take longer)
 		{
@@ -133,16 +139,16 @@ script 300 (void) net //tactical ability
 		}
 		While(!CheckInventory("inAbility"));
 		SetWeapon(currWeapon);
+		Delay(50);
+		TakeInventory("ComAbility", 1);
 	}
-	Else if(CheckInventory("AbEnergy") < 100 && CheckInventory("ComAbility"))
+	Else if(CheckInventory("AbEnergy") < 100 && CheckInventory("HasAbility"))
 	{
-		Log(s:logcolors[GetCVar("msg0color")], s:"You do not have enough energy...");
-		LocalAmbientSound("Ult/HYPFAIL", 50);
+		ACS_ExecuteAlways(600, 0, 1);
 	}
 	Else if(!CheckInventory("inAbility"))
 	{
-		Log(s:logcolors[GetCVar("msg0color")], s:"The shadows evade your grasp...");
-		LocalAmbientSound("Ult/HYPFAIL", 50);
+		ACS_ExecuteAlways(600, 0, 2);
 	}
 	Delay(20);
 }
@@ -153,11 +159,26 @@ script "respawn" respawn
 	if(CheckInventory("inHyper"))
 	{
 		TakeInventory("inHyper", 1);
-		SetWeapon(currWeapon);
+		TakeInventory("ComHyper", 1);
 	}
 	if(CheckInventory("inAbility"))
 	{
 		TakeInventory("inAbility", 1);
-		SetWeapon(currWeapon);
+		TakeInventory("ComAbility", 1);
 	}
+}
+
+script 600 (int type) clientside
+{
+	switch(type)
+	{
+		case 1: 
+			Log(s:logcolors[GetCVar("msg0color")], s:"You do not have enough energy...");
+			LocalAmbientSound("Ult/HYPFAIL", 50);
+			break;
+		case 2:
+			Log(s:logcolors[GetCVar("msg0color")], s:"The shadows evade your grasp...");
+			LocalAmbientSound("Ult/HYPFAIL", 50);
+			break;
+	};
 }
