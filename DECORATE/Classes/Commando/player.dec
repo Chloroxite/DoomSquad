@@ -7,5 +7,6 @@ actor CommandoPlayer : DoomPlayer
 {
 	Player.DisplayName "Commando"
 	Player.StartItem "Hornet", 1
+	Player.StartItem "HornetMag", 12
 	Player.StartItem "IsCommando", 1
 }

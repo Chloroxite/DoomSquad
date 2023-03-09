@@ -3,7 +3,7 @@
 str DS_WEAPONNAMES[5][7] =
 {
 	{"Hornet", "Spaz12", "P90", "RPG", "Megawave", "HasAbility", "HasHyper"}, //Commando
-	{"nogun", "Rhino", "BXR", "FleshRender", "PlasMaster", "nowep", "nowep"}, //Sharpshooter
+	{"M29Magnum", "Rhino", "BXR", "FleshRender", "PlasMaster", "nowep", "nowep"}, //Sharpshooter
 	{"nogun", "Jackhammer", "UAC4A", "Pulverizer", "Flamenwurfer", "nowep", "nowep"} //Firebug, placeholder
 };
 
@@ -19,11 +19,11 @@ str DS_AMMONAMES[5]=
 str DS_WEAPONMAGNAMES[5][7] =
 {
 	{"HornetMag", "SGMag", "SMGMag", "nomag", "nomag", "nomag", "nomag"}, //Commando's ammos
-	{"nomag", "JHMag", "UACMag", "nomag", "nomag", "nomag", "nomag"},
+	{"MAGnum", "SawedMag", "UACMag", "nomag", "nomag", "nomag", "nomag"},
 	{"nomag", "RhinoMag", "BXRMag", "nomag", "PMMag", "nomag", "nomag"}
 };
 
-str DS_PICKUPSTATES[7] = {"Commando", "Sharpshooter", "Firebug"};
+str DS_PICKUPSTATES[7] = {"Ded", "Commando", "Sharpshooter", "Firebug"};
 
 int DS_AMMOCOUNTS[5][5] =
 {

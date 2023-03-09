@@ -1,79 +1,73 @@
-Actor RifleMag : Ammo
+Actor SawedMag : Ammo
 {
-	Inventory.RestrictedTo "SharpshooterPlayer"
-	Inventory.MaxAmount 16
 	+IGNORESKILL
+	Inventory.MaxAmount 2
 }
 
-Actor Rifle : Weapon
+Actor Sawedoff : Weapon
 {
-	Obituary "%o found themselves on the wrong end of %k's rifle."
+	Obituary "%o was given a new asshole by %k's Sawed-off Shotgun."
+	Inventory.PickupMessage "The great equalizer? Look, you shouldn't be seeing this message."
+	Inventory.RestrictedTo "SharpshooterPlayer"
+	Weapon.SlotNumber 2
+	Weapon.Kickback 100
+	Weapon.AmmoType "SawedMag"
 	Weapon.AmmoUse 0
 	Weapon.AmmoGive 0
-	Weapon.AmmoType "Clip"
-	Weapon.AmmoType2 "RifleMag"
-	Weapon.SlotNumber 4
-	Decal BulletChip
-	Tag "Rifle"
-	Inventory.RestrictedTo "SharpshooterPlayer"
-	Inventory.PickupMessage "Hol up."
-	+AMMO_CHECKBOTH
+	Weapon.BobStyle InverseSmooth
+	Weapon.BobSpeed 2
+	Tag "Sawed-off Shotgun"
+	Decal "BulletChip"
 	states
 	{
-	Select:
-		LVAE D 1 Offset(0, 50) A_PlaySound("Weapons/RIFRL1", 1)
-		LVAE CBA 1
-		Goto Ready
-	Deselect:
-		TNT1 A 0 A_JumpIfHealthLower(1, "DeselectDeath")
+		Select:
+			SWDS A 1 A_Raise
+			TNT1 AAAAAAAAAAAAAAAAAA 0 A_Raise
+			Goto Ready
+		Deselect:
+			SWSL CBA 1
+			TNT1 A 1 A_Lower
+			TNT1 AAAAA 0 A_Lower
+			Wait
+		Ready:
+			SWSL ABC 1
+			SWDS A 1
+			Goto Ready2
+		Ready2:
+			SWDS A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+			Loop
+		Fire:
+			SWDS A 1 A_JumpIfInventory("SawedMag", 1, 1)
+			Goto Reload
+			SWDS A 1 A_JumpIfInventory("SawedMag", 0, "Fire2")
+			
+			SWDF A 2 bright A_FireBullets(2.5,2.5, 10, 5,"ngBulletPuff")
+			TNT1 AAAAAAAAAA 0 A_FireCustomMissile("BulletTrail", FRANDOM(-1, 1), 0, 0, 0, 0, FRANDOM(-2, 2))
+			TNT1 A 0 A_PlaySound("Weapons/SWDFIRE")
+			TNT1 A 0 A_TakeInventory("SawedMag", 1)
+			TNT1 AAAA 0 A_FireCustomMissile("SmonkSpawner", 0, 0, 12, 2)
+			TNT1 A 0 A_SetPitch(pitch-2)
+			TNT1 A 0 A_Recoil(2)
+			SWDF CDE 2
+			Goto Ready2
+		Fire2:
+			SWDF B 2 bright A_FireBullets(2.5,2.5, 10, 5,"ngBulletPuff")
+			TNT1 AAAAAAAAAA 0 A_FireCustomMissile("BulletTrail", FRANDOM(-1, 1), 0, 0, 0, 0, FRANDOM(-2, 2))
+			TNT1 A 0 A_PlaySound("Weapons/SWDFIRE")
+			TNT1 A 0 A_TakeInventory("SawedMag", 1)
+			TNT1 AAAA 0 A_FireCustomMissile("SmonkSpawner", 0, 0, 12, 2)
+			TNT1 A 0 A_SetPitch(pitch-2)
+			TNT1 A 0 A_Recoil(2)
+			SWDF CDE 2
+			Goto Ready2
+		Reload:
+			SWDS A 1 A_JumpIfInventory("SawedMag", 0, "Ready2")
+			TNT1 A 0 A_PlaySound("Weapons/SWDRL", 0)
+			SWDR ABCDEFGHIJKLMNPQR 2
+			SWDS A 1 ACS_NamedExecuteAlways("ReloadWeapon", 0, 1, 1, 0)
+			Goto Ready2
 		
-		LVAE ABCD 1
-		LVAE A 0 A_Lower
-		Wait
-	DeselectDeath:
-		LVAS A 1 A_Lower
-		Wait
-	Ready:
-		LVAS A 1 A_WeaponReady(WRF_ALLOWRELOAD)
-		Loop
-	Fire:
-		LVAF A 0 A_JumpIfInventory("RifleMag", 1, 1)
-		Goto Reload
-		
-		LVAF A 0 A_FireBullets(1, 1, 1, 50)
-		LVAF A 0 A_TakeInventory("RifleMag", 1)
-		LVAF A 1 BRIGHT A_PlaySound("Weapons/RIFFIR", 1, 0.5)
-		TNT1 A 0 A_FireCustomMissile("BulletTrail", FRANDOM(-1, 1), 0, 0, 0, 0, FRANDOM(-1, 1))
-		TNT1 A 0 A_SetPitch(pitch-3)
-		LVAF B 1 BRIGHT
-		LVAF C 1
-		LVAF D 2 A_PlaySound("Weapons/RIFRL1")
-		LVAF E 2
-		LVAF F 2 A_PlaySound("Weapons/RIFRl2")
-		LVAF G 2
-		LVAS A 2
-		Goto Ready
-	Reload:
-		TNT1 A 0 A_JumpIfInventory("RifleMag", 0, "Ready")
-		TNT1 A 0 A_JumpIfInventory("Clip", 1, 1)
-		Goto Ready
-		
-		LVAS ABCDE 1
-		Goto "AnimateReload"
-	AnimateReload:
-		TNT1 A 0 A_JumpIfInventory("Clip", 1, 1)
-		Goto FinishReload
-		
-		LVAR ABCDEF 1
-		LVAR G 1 A_PlaySound("Weapons/RIFRL3")
-		TNT1 A 0 A_TakeInventory("Clip", 1)
-		TNT1 A 0 A_GiveInventory("RifleMag", 1)
-		LVAR HIJLM 1
-		
-		TNT1 A 0 A_JumpIfInventory("RifleMag", 0, "FinishReload")
-		Loop
-	FinishReload:
-		LVAS EDCBA 1
-		Goto Ready
+			
+			
 	}
 }

@@ -121,4 +121,24 @@ Statusbar FullScreen, fullscreenoffsets
 			DrawNumber 3, JENOBIG, White, Ammo2, alignment(right), drawshadow, -280, -82;
 		}
 	}
+	InInventory isSharpshooter, 1
+	{
+		InInventory M29Magnum, 1
+		{
+			//DrawImage "RVLVA0", -120, 460;
+		}
+		
+		IsSelected M29Magnum
+		{
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
+		}
+		IsSelected Sawedoff
+		{
+			DrawImage "MHUDA0", -441, -95;
+			DrawBar "MBARA0", "HBBGA0", Ammo1, Horizontal, reverse,  -439, -93;
+			DrawNumber 3, JENOBIG, White, Ammo1, alignment(right), drawshadow, -280, -82;
+		}
+	}
 }

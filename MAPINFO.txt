@@ -1,4 +1,4 @@
 gameinfo
 {
-	PlayerClasses = "CommandoPlayer"//, "SharpshooterPlayer" Unfinished, Don't want this showing up during the live test, could result in broken behavior.
+	PlayerClasses = "CommandoPlayer", "SharpshooterPlayer" //Currently unfinished.
 }

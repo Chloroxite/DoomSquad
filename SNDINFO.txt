@@ -1,3 +1,5 @@
+//Commando
+
 //Hornet
 Weapons/HORNFIR HORNFIR
 Weapons/HORNRC HORNRC
@@ -94,6 +96,18 @@ Ult/HYPFAIL HYPFAIL
 //Tactical Abilities
 Tac/ABTHROW ABTHROW
 Tac/FLASH FLASH
+
+//Sharpshooter
+
+//M29
+Weapons/M29Fire M29Fire
+Weapons/M29R M29R
+Weapons/M29SWSH M29SWSH
+Weapons/M29Slct M29Slct
+
+//Sawed off shotgun
+Weapons/SWDFIRE SWDFIRE
+Weapons/SWDRL SWDRL
 
 //--------Various Pickup Sounds-----------
 Pickups/WPICK WPICK

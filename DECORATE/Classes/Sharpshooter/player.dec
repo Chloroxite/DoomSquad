@@ -6,6 +6,6 @@ actor IsSharpshooter : Inventory
 Actor SharpshooterPlayer : DoomPlayer
 {
 	Player.DisplayName "Sharpshooter"
-	//Player.StartItem "Hornet", 1 this isn't the weapon he's gonna get anymore. TODO
+	Player.StartItem "M29Magnum", 1
 	Player.StartItem "IsSharpshooter", 1
 }

@@ -1,9 +1,10 @@
 #include "zcommon.acs"
 #import "DSDefs.acs"
+#import "DSFuncs.acs"
 
 //Yeah yeah I know this code probably looks extremely gross. I'm not gonna say you're wrong lol.
 
-int ClientClass;
+global int 2:ClientClass;
 global str 1:currWeapon;
 
 script "global_setup" enter
@@ -27,19 +28,7 @@ script "global_setup" enter
 	
 	
 	//Figure out what class the player is
-	switch(GetActorClass(0))
-	{
-		Case "CommandoPlayer":
-			ClientClass = 1;
-			Break;
-		Case "FirebugPlayer":
-			ClientClass = 2;
-			Break;
-		Case "SharpshooterPlayer":
-			ClientClass = 3;
-			Break;
-	};
-	
+	ClientClass = 1 + GetClassNumber();
 	
 	While(true)
 	{
@@ -166,6 +155,8 @@ script "respawn" respawn
 		TakeInventory("inAbility", 1);
 		TakeInventory("ComAbility", 1);
 	}
+	
+	ClientClass = 1 + GetClassNumber();
 }
 
 script 600 (int type) clientside
